@@ -1,0 +1,5 @@
+export { Hero } from "./hero"
+export { ServicesSection } from "./services-section"
+export { FeaturedCaseStudies } from "./featured-case-studies"
+export { FeaturedBlogs } from "./featured-blogs"
+export { CTASection } from "./cta-section"
