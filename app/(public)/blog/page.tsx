@@ -1,33 +1,38 @@
-import type { Metadata } from "next"
-import { Suspense } from "react"
-import { PageHeader } from "@/components/global"
-import { Section } from "@/components/global"
-import { BlogCard } from "@/components/blog/blog-card"
-import { BlogFilter } from "@/components/blog/blog-filter"
-import { CustomPagination } from "@/components/custom-pagination"
-import { getBlogs, getBlogCategories } from "@/server/queries"
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { Section } from "@/components/global";
+import { BlogCard, BlogFilter, BlogHero } from "@/components/blog";
+import { CustomPagination } from "@/components/custom-pagination";
+import { getBlogs, getBlogCategories } from "@/server/queries";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Insights, strategies, and resources on ethical marketing, branding, and business growth.",
-}
+  title: "Ethical Marketing Blog",
+  description:
+    "Insights, strategies, and resources on ethical marketing, branding, and business growth.",
+};
 
 interface BlogPageProps {
   searchParams: Promise<{
-    page?: string
-    category?: string
-  }>
+    page?: string;
+    category?: string;
+  }>;
 }
 
-async function BlogList({ page, category }: { page: number; category?: string }) {
+async function BlogList({
+  page,
+  category,
+}: {
+  page: number;
+  category?: string;
+}) {
   const { data: blogs, totalPages } = await getBlogs({
     page,
     pageSize: 9,
     published: true,
     category,
-  })
+  });
 
-  const categories = await getBlogCategories()
+  const categories = await getBlogCategories();
 
   if (blogs.length === 0) {
     return (
@@ -36,20 +41,24 @@ async function BlogList({ page, category }: { page: number; category?: string })
           No articles found. Check back soon for new content!
         </p>
       </div>
-    )
+    );
   }
 
   return (
     <>
       <BlogFilter categories={categories} currentCategory={category} />
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {blogs.map((blog, index) => (
           <BlogCard
             key={blog.id}
             blog={blog}
             featured={index === 0 && page === 1 && !category}
-            className={index === 0 && page === 1 && !category ? "md:col-span-2 lg:col-span-2" : ""}
+            className={
+              index === 0 && page === 1 && !category
+                ? "md:col-span-2 lg:col-span-2"
+                : ""
+            }
           />
         ))}
       </div>
@@ -65,7 +74,7 @@ async function BlogList({ page, category }: { page: number; category?: string })
         </div>
       )}
     </>
-  )
+  );
 }
 
 function BlogSkeleton() {
@@ -75,21 +84,17 @@ function BlogSkeleton() {
         <div key={i} className="rounded-lg bg-muted animate-pulse h-80" />
       ))}
     </div>
-  )
+  );
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const params = await searchParams
-  const page = Number(params.page) || 1
-  const category = params.category
+  const params = await searchParams;
+  const page = Number(params.page) || 1;
+  const category = params.category;
 
   return (
     <>
-      <PageHeader
-        title="Blog"
-        description="Insights, strategies, and resources to help you grow your business with integrity."
-        breadcrumbs={[{ label: "Blog" }]}
-      />
+      <BlogHero />
 
       <Section>
         <Suspense fallback={<BlogSkeleton />}>
@@ -97,5 +102,5 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         </Suspense>
       </Section>
     </>
-  )
+  );
 }
