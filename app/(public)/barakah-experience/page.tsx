@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight, MessageSquare, Handshake, Rocket, Award, Users, Clock } from "lucide-react"
-import { PageHeader } from "@/components/global"
+import { BarakahExperienceHero } from "@/components/barakah-experience/barakah-experience-hero"
+import { BarakahExperienceIndustries } from "@/components/barakah-experience/barakah-experience-industries"
+import { ExperiencePrinciples } from "@/components/barakah-experience/experience-principles"
 import { Section, SectionHeader } from "@/components/global"
 import { Button } from "@/components/ui/button"
 
@@ -72,11 +74,9 @@ const testimonials = [
 export default function BarakahExperiencePage() {
   return (
     <>
-      <PageHeader
-        title="The Barakah Experience"
-        description="Discover what makes working with us different - and why our clients stay for years."
-        breadcrumbs={[{ label: "Barakah Experience" }]}
-      />
+      <BarakahExperienceHero />
+      <BarakahExperienceIndustries />
+      <ExperiencePrinciples />
 
       {/* Client Journey */}
       <Section>

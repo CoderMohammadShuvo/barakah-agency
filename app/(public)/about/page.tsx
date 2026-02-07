@@ -57,14 +57,22 @@ const team = [
   },
 ]
 
+import { AboutHero } from "@/components/about/about-hero"
+import { AboutEthos } from "@/components/about/about-ethos"
+import { AboutPrinciples } from "@/components/about/about-principles"
+import { AboutProcess } from "@/components/about/about-process"
+import { AboutTeam } from "@/components/about/about-team"
+import { AboutFAQ } from "@/components/about/about-faq"
+
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        title="About Barakah Agency"
-        description="We're on a mission to prove that ethical marketing isn't just possible - it's more effective."
-        breadcrumbs={[{ label: "About" }]}
-      />
+      <AboutHero />
+      <AboutEthos />
+      <AboutPrinciples />
+      <AboutProcess />
+      <AboutTeam />
+      <AboutFAQ />
 
       {/* Story Section */}
       <Section>

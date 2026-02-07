@@ -29,9 +29,9 @@ export function BrandsSection() {
                 </div>
 
                 {/* Section Title */}
-                <div className="text-center mb-12">
-                    <h2 className="text-xl md:text-2xl font-semibold text-[#f59e5f] font-lato">
-                        • Brands that echo with Us •
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-5xl font-black text-[#381e11] font-lato">
+                        Stories of Purposeful Growth
                     </h2>
                 </div>
 

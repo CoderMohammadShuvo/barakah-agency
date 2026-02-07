@@ -4,7 +4,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export function FinalCTASection() {
+export function FinalCTASection({ buttonLabel = "Grow with Barakah" }: { buttonLabel?: string }) {
     return (
         <section className="relative py-20 md:py-32 bg-background overflow-hidden">
             <div className="container mx-auto px-4 lg:px-8">
@@ -28,7 +28,7 @@ export function FinalCTASection() {
                         className="rounded-full px-8 h-14 text-lg font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-105 font-lato"
                     >
                         <Link href="/contact">
-                            Grow with Barakah
+                            {buttonLabel}
                             <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                     </Button>

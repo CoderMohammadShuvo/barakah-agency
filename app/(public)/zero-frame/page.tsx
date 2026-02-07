@@ -33,33 +33,25 @@ const principles = [
   },
 ]
 
+import { ZeroFrameHero } from "@/components/zero-frame/zero-frame-hero"
+import { ZeroFrameIntelligence } from "@/components/zero-frame/zero-frame-intelligence"
+import { AttributionReporting } from "@/components/zero-frame/attribution-reporting"
+import { TargetingScoring } from "@/components/zero-frame/targeting-scoring"
+import { ZeroFramePersonafied } from "@/components/zero-frame/zero-frame-personafied"
+import { MultiChannelAttribution } from "@/components/zero-frame/multi-channel-attribution"
+import { ZeroFrameFinalCTA } from "@/components/zero-frame/zero-frame-final-cta"
+
 export default function ZeroFramePage() {
   return (
     <>
-      <PageHeader
-        title="Zero Frame"
-        description="A revolutionary approach to understanding how your brand truly appears to the world."
-        breadcrumbs={[{ label: "Zero Frame" }]}
-      />
+      <ZeroFrameHero />
 
-      {/* Concept */}
-      <Section>
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-foreground mb-6 text-balance">
-            See Your Brand Through New Eyes
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            "Zero Frame" is our proprietary methodology for brand perception analysis. 
-            We temporarily forget everything we know about marketing best practices and 
-            industry norms to see your brand exactly as a first-time visitor would.
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            This unbiased approach reveals insights that traditional audits miss - 
-            the subtle friction points, mixed messages, and missed opportunities that 
-            are invisible to those too close to the brand.
-          </p>
-        </div>
-      </Section>
+      <ZeroFrameIntelligence />
+      <AttributionReporting />
+      <TargetingScoring />
+      <ZeroFramePersonafied />
+      <MultiChannelAttribution />
+      <ZeroFrameFinalCTA />
 
       {/* Principles */}
       <Section className="bg-muted/30">
@@ -106,7 +98,7 @@ export default function ZeroFramePage() {
                     Complete Immersion
                   </h4>
                   <p className="text-muted-foreground">
-                    Our team experiences your brand as a first-time customer would, 
+                    Our team experiences your brand as a first-time customer would,
                     documenting every touchpoint.
                   </p>
                 </div>
@@ -120,7 +112,7 @@ export default function ZeroFramePage() {
                     Pattern Recognition
                   </h4>
                   <p className="text-muted-foreground">
-                    We identify recurring themes, inconsistencies, and opportunities 
+                    We identify recurring themes, inconsistencies, and opportunities
                     across your brand ecosystem.
                   </p>
                 </div>
@@ -134,7 +126,7 @@ export default function ZeroFramePage() {
                     Strategic Recommendations
                   </h4>
                   <p className="text-muted-foreground">
-                    We deliver a comprehensive report with prioritized, actionable 
+                    We deliver a comprehensive report with prioritized, actionable
                     recommendations for improvement.
                   </p>
                 </div>

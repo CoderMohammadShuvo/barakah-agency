@@ -64,6 +64,12 @@ function CaseStudiesSkeleton() {
   )
 }
 
+import { CaseStudiesHero } from "@/components/case-study/case-studies-hero"
+import { ProofOfPerformanceSection } from "@/components/landing/proof-of-performance-section"
+import { CaseOutcomeExample } from "@/components/case-study/case-outcome-example"
+import { BrandsSection } from "@/components/landing/brands-section"
+import { FinalCTASection } from "@/components/landing/final-cta-section"
+
 export default async function CaseStudiesPage({
   searchParams,
 }: CaseStudiesPageProps) {
@@ -72,17 +78,11 @@ export default async function CaseStudiesPage({
 
   return (
     <>
-      <PageHeader
-        title="Case Studies"
-        description="Explore how we've helped purpose-driven brands achieve remarkable growth through ethical marketing."
-        breadcrumbs={[{ label: "Case Studies" }]}
-      />
-
-      <Section>
-        <Suspense fallback={<CaseStudiesSkeleton />}>
-          <CaseStudiesList page={page} />
-        </Suspense>
-      </Section>
+      <CaseStudiesHero />
+      <ProofOfPerformanceSection />
+      <CaseOutcomeExample />
+      <BrandsSection />
+      <FinalCTASection buttonLabel="Book a Free Consultation" />
     </>
   )
 }

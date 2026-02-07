@@ -17,10 +17,33 @@ export const siteConfig = {
   },
   navigation: [
     { name: "Why Barakah?", href: "/why-barakah" },
-    { name: "The Barakah System", href: "/system" },
-    { name: "The Barakah Components", href: "/components" },
+    {
+      name: "The Barakah System",
+      href: "/system",
+      items: [
+        { name: "The Barakah Method", href: "/barakah-method", description: "Our philosophy for building ethical, scalable, impact-driven growth systems." },
+        { name: "The Barakah Ecosystem", href: "/ecosystem", description: "Specialized brands, each built to serve unique industries – all grounded in one shared vision." }
+      ]
+    },
+    {
+      name: "The Barakah Components",
+      href: "/components",
+      items: [
+        { name: "Our Solutions", href: "/services", description: "Where strategy, technology, and trust converge to build systems that scale with purpose." },
+        { name: "Branding & Identity", href: "/services/branding", description: "Define your brand with clarity and soul – from visuals to voice – rooted in strategy and culture." },
+        { name: "ZeroFrame™ Intelligence", href: "/zero-frame", description: "Real-time targeting, visitor scoring, and dynamic personas so you market smarter, not louder." },
+        { name: "Performance Marketing", href: "/services/performance-marketing", description: "Full-funnel campaigns that align ethical strategy with measurable growth – built to earn trust, not just clicks." }
+      ]
+    },
     { name: "Case Studies", href: "/case-studies" },
-    { name: "Learn", href: "/blog" },
+    {
+      name: "Learn",
+      href: "/blog",
+      items: [
+        { name: "Blog", href: "/blog", description: "Insights, strategies, and behind-the-scenes thinking to help you grow with purpose." },
+        { name: "Topical Libraries", href: "/ethical-marketing-hub", description: "Curated collections on the most important themes shaping ethical growth today." }
+      ]
+    },
   ],
   services: [
     {
