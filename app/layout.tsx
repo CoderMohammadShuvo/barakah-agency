@@ -1,4 +1,5 @@
 import React from "react"
+
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display, Lato } from 'next/font/google'
 

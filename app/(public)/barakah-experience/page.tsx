@@ -4,6 +4,8 @@ import { ArrowRight, MessageSquare, Handshake, Rocket, Award, Users, Clock } fro
 import { BarakahExperienceHero } from "@/components/barakah-experience/barakah-experience-hero"
 import { BarakahExperienceIndustries } from "@/components/barakah-experience/barakah-experience-industries"
 import { ExperiencePrinciples } from "@/components/barakah-experience/experience-principles"
+import { BarakahEcosystemSection } from "@/components/landing/barakah-ecosystem-section"
+import { FinalCTASection } from "@/components/landing/final-cta-section"
 import { Section, SectionHeader } from "@/components/global"
 import { Button } from "@/components/ui/button"
 
@@ -77,6 +79,8 @@ export default function BarakahExperiencePage() {
       <BarakahExperienceHero />
       <BarakahExperienceIndustries />
       <ExperiencePrinciples />
+      <BarakahEcosystemSection />
+      <FinalCTASection buttonLabel="Book a Free Consultation" />
 
       {/* Client Journey */}
       <Section>
@@ -201,22 +205,6 @@ export default function BarakahExperiencePage() {
       </Section>
 
       {/* CTA */}
-      <Section className="bg-primary text-primary-foreground">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold mb-4 text-balance">
-            Ready to Experience the Difference?
-          </h2>
-          <p className="text-lg text-primary-foreground/80 mb-8">
-            Start your journey with a free discovery call.
-          </p>
-          <Button asChild variant="secondary" size="lg">
-            <Link href="/contact">
-              Schedule Your Call
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
-      </Section>
     </>
   )
 }
