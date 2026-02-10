@@ -16,18 +16,18 @@ export const siteConfig = {
     address: "123 Business Street, Suite 100, New York, NY 10001",
   },
   navigation: [
-    { name: "Why Barakah?", href: "/why-barakah" },
+    { name: "Why Barakah?", href: "/about" },
     {
       name: "The Barakah System",
       href: "/system",
       items: [
         { name: "The Barakah Method", href: "/barakah-method", description: "Our philosophy for building ethical, scalable, impact-driven growth systems." },
-        { name: "The Barakah Ecosystem", href: "/ecosystem", description: "Specialized brands, each built to serve unique industries – all grounded in one shared vision." }
+        { name: "The Barakah Ecosystem", href: "/barakah-experience", description: "Specialized brands, each built to serve unique industries – all grounded in one shared vision." }
       ]
     },
     {
       name: "The Barakah Components",
-      href: "/components",
+      href: "/services",
       items: [
         { name: "Our Solutions", href: "/services", description: "Where strategy, technology, and trust converge to build systems that scale with purpose." },
         { name: "Branding & Identity", href: "/services/branding", description: "Define your brand with clarity and soul – from visuals to voice – rooted in strategy and culture." },
@@ -41,7 +41,7 @@ export const siteConfig = {
       href: "/blog",
       items: [
         { name: "Blog", href: "/blog", description: "Insights, strategies, and behind-the-scenes thinking to help you grow with purpose." },
-        { name: "Topical Libraries", href: "/ethical-marketing-hub", description: "Curated collections on the most important themes shaping ethical growth today." }
+        { name: "Topical Libraries", href: "/ethical-marketing", description: "Curated collections on the most important themes shaping ethical growth today." }
       ]
     },
   ],
