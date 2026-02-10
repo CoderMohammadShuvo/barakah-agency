@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Section } from "@/components/global";
-import { BlogCard, BlogFilter, BlogHero } from "@/components/blog";
-import { CustomPagination } from "@/components/custom-pagination";
+import {
+  BlogHero,
+  BlogTopicsSidebar,
+  TrendingTopics,
+  BlogListItem,
+  BlogPagination,
+  NewsletterSection
+} from "@/components/blog";
 import { getBlogs, getBlogCategories } from "@/server/queries";
 
 export const metadata: Metadata = {
@@ -18,89 +24,102 @@ interface BlogPageProps {
   }>;
 }
 
-async function BlogList({
-  page,
-  category,
-}: {
-  page: number;
-  category?: string;
-}) {
-  const { data: blogs, totalPages } = await getBlogs({
-    page,
-    pageSize: 9,
-    published: true,
-    category,
-  });
-
-  const categories = await getBlogCategories();
-
-  if (blogs.length === 0) {
-    return (
-      <div className="text-center py-16">
-        <p className="text-muted-foreground text-lg">
-          No articles found. Check back soon for new content!
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <>
-      <BlogFilter categories={categories} currentCategory={category} />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {blogs.map((blog, index) => (
-          <BlogCard
-            key={blog.id}
-            blog={blog}
-            featured={index === 0 && page === 1 && !category}
-            className={
-              index === 0 && page === 1 && !category
-                ? "md:col-span-2 lg:col-span-2"
-                : ""
-            }
-          />
-        ))}
-      </div>
-
-      {totalPages > 1 && (
-        <div className="mt-12 flex justify-center">
-          <CustomPagination
-            currentPage={page}
-            totalPages={totalPages}
-            baseUrl="/blog"
-            searchParams={category ? { category } : undefined}
-          />
-        </div>
-      )}
-    </>
-  );
-}
-
-function BlogSkeleton() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-      {[1, 2, 3, 4, 5, 6].map((i) => (
-        <div key={i} className="rounded-lg bg-muted animate-pulse h-80" />
-      ))}
-    </div>
-  );
-}
-
 export default async function BlogPage({ searchParams }: BlogPageProps) {
   const params = await searchParams;
   const page = Number(params.page) || 1;
   const category = params.category;
+
+  let { data: blogs, totalPages } = await getBlogs({
+    page,
+    pageSize: 5,
+    published: true,
+    category,
+  });
+
+  // Mock data fallback for UI showcase if DB is empty
+  if (blogs.length === 0 && !category) {
+    blogs = [
+      {
+        id: "1",
+        title: "Growth Beyond Metrics",
+        description: "Barakah Agency was founded on the belief that growth is not neutral, and that every decision an organization makes sends a signal about what it values, how it treats people, and what kind of future it is working toward.",
+        category: "Ethical Growth",
+        slug: "growth-beyond-metrics-1",
+        created_at: new Date().toISOString(),
+        published: true,
+        image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        id: "2",
+        title: "Practical Strategy for the Long Term",
+        description: "Moving beyond surface-level metrics to build foundations that last. Discover why ethical strategy is the most sustainable path to meaningful impact.",
+        category: "Strategy",
+        slug: "practical-strategy",
+        created_at: new Date().toISOString(),
+        published: true,
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        id: "3",
+        title: "Frameworks for Ethical Scaling",
+        description: "How to maintain your principles while growing your reach. A deep dive into systems that balance performance and responsibility.",
+        category: "Frameworks",
+        slug: "ethical-scaling",
+        created_at: new Date().toISOString(),
+        published: true,
+        image: "https://images.unsplash.com/photo-1454165833767-bb2d6f44888e?auto=format&fit=crop&q=80&w=800",
+      }
+    ] as any;
+    totalPages = 5; // Force pagination to show for demo/mockup purposes
+  }
+
+  const categories = await getBlogCategories();
+  const displayCategories = categories.length > 0 ? categories : ["Ethical Growth", "Strategy", "Frameworks", "Systems", "Brand", "Performance"];
 
   return (
     <>
       <BlogHero />
 
       <Section>
-        <Suspense fallback={<BlogSkeleton />}>
-          <BlogList page={page} category={category} />
-        </Suspense>
+        {blogs.length === 0 ? (
+          <div className="text-center py-16">
+            <p className="text-[#5c4033]/60 text-lg italic">
+              No articles found. Check back soon for new content!
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16">
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <BlogTopicsSidebar categories={displayCategories} currentCategory={category} />
+            </div>
+
+            {/* Main Content */}
+            <div className="lg:col-span-3">
+              <TrendingTopics categories={displayCategories} currentCategory={category} />
+
+              <div className="space-y-4">
+                {blogs.map((blog) => (
+                  <BlogListItem key={blog.id} blog={blog} />
+                ))}
+              </div>
+
+              {totalPages > 1 && (
+                <div className="mt-16 flex justify-center lg:justify-start">
+                  <BlogPagination
+                    currentPage={page}
+                    totalPages={totalPages}
+                    baseUrl="/blog"
+                    searchParams={category ? { category } : undefined}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </Section>
+
+      <NewsletterSection />
     </>
-  );
+  )
 }
