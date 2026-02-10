@@ -1,99 +1,113 @@
-'use client'
+"use client";
 
-import React from "react"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious
-} from "@/components/ui/carousel"
-import { Section } from "@/components/global"
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Section } from "@/components/global";
 
 const industries = [
-    {
-        title: "Education & Learning",
-        subtitle: "Institutions Built on Trust and Continuity",
-        description: "We support educational organizations navigating enrollment, engagement, and long-term community building. Our approach prioritizes clarity, credibility, and systems that serve both institutions and learners responsibly.",
-        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80",
-    },
-    {
-        title: "Healthcare & Wellness",
-        subtitle: "Institutions Built on Trust and Continuity",
-        description: "We support educational organizations navigating enrollment, engagement, and long-term community building. Our approach prioritizes clarity, credibility, and systems that serve both institutions and learners responsibly.",
-        image: "https://images.unsplash.com/photo-1576091160550-2173599211d0?w=800&q=80",
-    },
-    {
-        title: "Ethical Commerce & Services",
-        subtitle: "Institutions Built on Trust and Continuity",
-        description: "We support educational organizations navigating enrollment, engagement, and long-term community building. Our approach prioritizes clarity, credibility, and systems that serve both institutions and learners responsibly.",
-        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
-    },
-]
+  {
+    title: "Education & Learning",
+    subtitle: "Institutions Built on Trust and Continuity",
+    description:
+      "We support educational organizations navigating enrollment, engagement, and long-term community building. Our approach prioritizes clarity, credibility, and systems that serve both institutions and learners responsibly.",
+    image: "/assets/be1.jpg",
+  },
+  {
+    title: "Healthcare & Wellness",
+    subtitle: "Institutions Built on Trust and Continuity",
+    description:
+      "We support educational organizations navigating enrollment, engagement, and long-term community building. Our approach prioritizes clarity, credibility, and systems that serve both institutions and learners responsibly.",
+    image: "/assets/be2.jpg",
+  },
+  {
+    title: "Ethical Commerce & Services",
+    subtitle: "Institutions Built on Trust and Continuity",
+    description:
+      "We support educational organizations navigating enrollment, engagement, and long-term community building. Our approach prioritizes clarity, credibility, and systems that serve both institutions and learners responsibly.",
+    image: "/assets/be3.jpg",
+  },
+];
 
 export function BarakahExperienceIndustries() {
-    return (
-        <Section className="bg-white overflow-hidden">
-            <div className="container mx-auto px-4 lg:px-8">
-                <Carousel
-                    opts={{
-                        align: "start",
-                        loop: true,
-                    }}
-                    className="w-full relative"
-                >
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
-                        <div className="space-y-4">
-                            <span className="text-lg font-bold text-[#381E11]">Industries Barakah Serves</span>
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#381E11] font-lato tracking-tight">
-                                Built for Focused,<br />High-Trust Sectors
-                            </h2>
-                        </div>
-
-                        <div className="flex gap-4">
-                            <CarouselPrevious className="static translate-y-0 h-14 w-14 bg-[#E76F3D]/10 hover:bg-[#E76F3D] hover:text-white border-none text-[#E76F3D]" />
-                            <CarouselNext className="static translate-y-0 h-14 w-14 bg-[#E76F3D] hover:bg-[#d46235] text-white border-none" />
-                        </div>
-                    </div>
-
-                    <CarouselContent className="-ml-6">
-                        {industries.map((industry, index) => (
-                            <CarouselItem key={index} className="pl-6 md:basis-1/2 lg:basis-1/3">
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="group relative h-[600px] w-full rounded-[2.5rem] overflow-hidden"
-                                >
-                                    <Image
-                                        src={industry.image}
-                                        alt={industry.title}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-
-                                    {/* Gradient Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#E76F3D] via-[#E76F3D]/80 to-transparent" />
-
-                                    {/* Content */}
-                                    <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-10 text-white">
-                                        <div className="space-y-4">
-                                            <h3 className="text-2xl lg:text-3xl font-black">{industry.title}</h3>
-                                            <p className="text-sm lg:text-base font-bold text-white/90">{industry.subtitle}</p>
-                                            <p className="text-xs lg:text-sm leading-relaxed text-white/80 line-clamp-4">
-                                                {industry.description}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            </CarouselItem>
-                        ))}
-                    </CarouselContent>
-                </Carousel>
+  return (
+    <Section className="bg-white overflow-hidden">
+      <div className="container mx-auto px-4 lg:px-8">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full relative"
+        >
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+            <div className="space-y-4">
+              <span className="text-lg font-bold text-[#381E11]">
+                Industries Barakah Serves
+              </span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#381E11] font-lato tracking-tight">
+                Built for Focused,
+                <br />
+                High-Trust Sectors
+              </h2>
             </div>
-        </Section>
-    )
+
+            <div className="flex gap-4">
+              <CarouselPrevious className="static translate-y-0 h-14 w-14 bg-[#E76F3D]/10 hover:bg-[#E76F3D] hover:text-white border-none text-[#E76F3D]" />
+              <CarouselNext className="static translate-y-0 h-14 w-14 bg-[#E76F3D] hover:bg-[#d46235] text-white border-none" />
+            </div>
+          </div>
+
+          <CarouselContent className="-ml-6">
+            {industries.map((industry, index) => (
+              <CarouselItem
+                key={index}
+                className="pl-6 md:basis-1/2 lg:basis-1/3"
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative h-[600px] w-full rounded-[2.5rem] overflow-hidden"
+                >
+                  <Image
+                    src={industry.image}
+                    alt={industry.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#E76F3D] via-[#E76F3D]/80 to-transparent" />
+
+                  {/* Content */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-10 text-white">
+                    <div className="space-y-4">
+                      <h3 className="text-2xl lg:text-3xl font-black">
+                        {industry.title}
+                      </h3>
+                      <p className="text-sm lg:text-base font-bold text-white/90">
+                        {industry.subtitle}
+                      </p>
+                      <p className="text-xs lg:text-sm leading-relaxed text-white/80 line-clamp-4">
+                        {industry.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+    </Section>
+  );
 }

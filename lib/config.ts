@@ -41,7 +41,7 @@ export const siteConfig = {
       href: "/blog",
       items: [
         { name: "Blog", href: "/blog", description: "Insights, strategies, and behind-the-scenes thinking to help you grow with purpose." },
-        { name: "Topical Libraries", href: "/ethical-marketing", description: "Curated collections on the most important themes shaping ethical growth today." }
+        { name: "Topical Libraries", href: "/ethical-marketing-hub", description: "Curated collections on the most important themes shaping ethical growth today." }
       ]
     },
   ],
