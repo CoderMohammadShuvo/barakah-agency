@@ -10,32 +10,13 @@ export function PerformanceHero() {
   return (
     <section className="relative min-h-[90vh] lg:min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-[#FFFCF9] pt-32 pb-40">
       {/* Decorative Background Pattern (Mandala-like) */}
-      <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-[0.08] pointer-events-none">
-        <svg viewBox="0 0 100 100" className="w-full h-full text-[#3D1A10]">
-          <circle
-            cx="50"
-            cy="50"
-            r="48"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="0.5"
-          />
-          {[...Array(24)].map((_, i) => (
-            <motion.ellipse
-              key={i}
-              cx="50"
-              cy="50"
-              rx="48"
-              ry="15"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="0.2"
-              initial={{ rotate: i * 7.5 }}
-              animate={{ rotate: i * 7.5 + 360 }}
-              transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-            />
-          ))}
-        </svg>
+      <div className="absolute right-[-10%] top-2 -translate-y-1/2 w-[800px] h-[800px] opacity-[0.08] pointer-events-none">
+        <Image
+          src="/images/pbg.png"
+          alt="Mandala"
+          fill
+          className="object-cover"
+        />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -92,7 +73,7 @@ export function PerformanceHero() {
               className="relative w-[350px] sm:w-[500px] aspect-square"
             >
               {/* Outer Glow */}
-              <div className="absolute inset-0 bg-[#E76F3D]/20 blur-[100px] rounded-full animate-pulse" />
+              {/* <div className="absolute inset-0 bg-[#E76F3D]/20 blur-[100px] rounded-full animate-pulse" /> */}
 
               {/* Speedometer Image Container */}
               <div className="relative w-full h-full bg-[#1A1A1A] rounded-full border-[12px] border-[#2A1A10] shadow-[0_0_80px_rgba(231,111,61,0.3)] overflow-hidden flex items-center justify-center">
@@ -101,7 +82,7 @@ export function PerformanceHero() {
                 {/* Simulated Speedometer with SVG & Image */}
                 <div className="relative w-[85%] h-[85%] rounded-full overflow-hidden border-4 border-[#3D1A10]/30 shadow-inner">
                   <Image
-                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop"
+                    src="/assets/speedometer.png"
                     alt="Speedometer Performance"
                     fill
                     className="object-cover opacity-50 contrast-125 saturate-50"

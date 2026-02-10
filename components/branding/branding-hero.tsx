@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const images = [
   {
@@ -53,13 +54,15 @@ export function BrandingHero() {
   return (
     <section className="relative min-h-[90vh] lg:min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-[#FFFCF9] pt-32 pb-40">
       {/* Background Radial Pattern */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1600px] h-[1600px] border border-[#E76F3D]/5 rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1300px] h-[1300px] border border-[#E76F3D]/5 rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-[#E76F3D]/5 rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-[#E76F3D]/5 rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-[#E76F3D]/5 rounded-full" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(231,111,61,0.03)_0%,transparent_70%)]" />
+      <div className="absolute inset-0 z-0 select-none">
+        <Image
+          src="/assets/hero-bg.png"
+          alt="Background"
+          fill
+          className="object-fit object-top opacity-40 mix-blend-multiply"
+          priority
+          quality={100}
+        />
       </div>
 
       {/* Decorative Glows */}
@@ -98,57 +101,50 @@ export function BrandingHero() {
           </Button>
         </motion.div>
 
-        {/* Fanned Images Container */}
-        <div className="relative w-full max-w-6xl h-[400px] md:h-[500px] mt-20">
-          <div className="absolute inset-x-0 bottom-0 flex justify-center items-end">
-            {images.map((image, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 100, rotate: 0 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  rotate: image.rotate,
-                  x: image.x,
-                  translateY: image.y,
-                }}
-                transition={{
-                  duration: 1,
-                  delay: 0.4 + index * 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                style={{ zIndex: image.zIndex }}
-                className={`absolute w-[200px] sm:w-[350px] lg:w-[450px] aspect-[4/3] bg-white shadow-2xl overflow-hidden border-4 border-white ${
-                  image.isCenter ? "z-30" : ""
-                }`}
-              >
-                <div className="w-full h-full relative group">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-              </motion.div>
-            ))}
+        <div className="relative w-full  max-w-7xl mx-auto h-[300px] md:h-[400px] flex justify-center items-end animate-fade-in-up opacity-0 [animation-fill-mode:forwards] [animation-delay:1000ms]">
+
+          {/* Card 1 (Left-most) */}
+          <div className="absolute bottom-0 left-[1%] bottom-[20%] md:left-[1%] w-[160px] md:w-[460px] h-[260px] md:h-[360px] aspect-[3/4]  shadow-2xl -rotate-12 z-10 border-4 border-white transform hover:-translate-y-4 transition-transform duration-500 origin-bottom-right">
+            <div className="w-full h-full bg-slate-200 overflow-hidden relative">
+              <img src="/assets/1.png" alt="Work 1" className="object-cover w-full h-full" />
+            </div>
           </div>
 
-          {/* Fade Overlay at the bottom */}
-          <div className="absolute bottom-0 left-[-20%] right-[-20%] h-64 bg-gradient-to-t from-[#FFFCF9] via-[#FFFCF9]/80 to-transparent z-40" />
+          {/* Card 2 */}
+          <div className="absolute  left-[15%] md:left-[15%] w-[160px] md:w-[450px] h-[260px] md:h-[360px] aspect-[3/4]  shadow-2xl -rotate-6 z-20 border-4 border-white transform hover:-translate-y-4 transition-transform duration-500 origin-bottom">
+            <div className="w-full h-full bg-slate-200  overflow-hidden relative">
+              <img src="/assets/2.png" alt="Work 2" className="object-cover w-full h-full" />
+            </div>
+          </div>
 
-          {/* Footer Text */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="absolute bottom-0 left-0 right-0 text-center z-50 transform translate-y-12"
-          >
-            <p className="text-lg md:text-xl text-[#3D1A10] font-bold tracking-tight px-4">
-              Brand Impact, Powered by The Barakah <br /> Method and Mesghali
-              Studio
-            </p>
-          </motion.div>
+          {/* Card 3 (Center) */}
+          <div className="absolute bottom-12 w-[280px] md:w-[460] aspect-video md:aspect-[4/3] shadow-2xl z-30 border-4 border-white transform hover:-translate-y-4 transition-transform duration-500">
+            <div className="w-full h-full bg-white  overflow-hidden relative flex items-center justify-center p-2">
+              {/* Placeholder for "Synco" or branding */}
+              <img src="/assets/3.png" alt="Work 3" className="object-cover w-full h-full" />
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="absolute bottom-8 right-[15%] md:right-[15%] w-[160px] md:w-[460px] h-[260px] md:h-[360px] aspect-[3/4]  shadow-2xl rotate-6 z-20 border-4 border-white transform hover:-translate-y-4 transition-transform duration-500 origin-bottom">
+            <div className="w-full h-full bg-slate-200  overflow-hidden relative">
+              <img src="/assets/4.png" alt="Work 4" className="object-cover w-full h-full" />
+            </div>
+          </div>
+
+          {/* Card 5 (Right-most) */}
+          <div className="absolute bottom-[20%] right-[1%] md:right-[1%] w-[160px] md:w-[460px] h-[260px] md:h-[360px] aspect-[3/4]  shadow-2xl rotate-12 z-10 border-4 border-white transform hover:-translate-y-4 transition-transform duration-500 origin-bottom-left">
+            <div className="w-full h-full bg-slate-200   overflow-hidden relative">
+              <img src="/assets/5.png" alt="Work 5" className="object-cover w-full h-full" />
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Credit */}
+        <div className="absolute bottom-[-50px] left-0 right-0 text-center">
+          <p className="text-20PX text-[#3F1200] font-bold">
+            Brand Impact, Powered by The Barakah <br /> Method and Mesghali Studio
+          </p>
         </div>
       </div>
     </section>

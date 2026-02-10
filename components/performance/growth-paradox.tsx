@@ -116,7 +116,7 @@ export function GrowthParadox() {
       {/* Horizontal Scroll Area */}
       <div
         ref={containerRef}
-        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-10 px-[5vw] lg:px-[10vw] gap-12 lg:gap-24 relative z-10"
+        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-10 px-[5vw] lg:px-[10vw] gap-12 lg:gap-24 relative z-10 pl-8"
       >
         {/* Left Fixed-ish Section: The Performance Problem */}
         <div className="flex-shrink-0 w-[85vw] lg:w-[450px] snap-start">

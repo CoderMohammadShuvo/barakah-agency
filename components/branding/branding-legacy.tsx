@@ -14,7 +14,7 @@ const slides = [
       'We move beyond "Visual Identity" to "Behavioral Identity." We design how your brand speaks, acts, and resolves conflict.',
     highlight: "A brand isn't what you say; it's what you do.",
     centerImage:
-      "https://images.unsplash.com/photo-1534431051515-bbf07127e4e1?q=80&w=1000&auto=format&fit=crop",
+      "/assets/b1.jpg",
     rightQuote:
       "When your brand becomes an experience rather than a logo, your customers become your strongest advocates.",
   },
@@ -25,7 +25,7 @@ const slides = [
       "In a skeptical world, radical transparency and values-led decision-making create a 'moat' around your business that competitors cannot copy.",
     highlight: "Integrity is the ultimate differentiator.",
     centerImage:
-      "https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=1000&auto=format&fit=crop",
+      "/assets/b2.jpg",
     rightQuote:
       "We don't see ethics as a restriction, but as a filter that attracts the right audience and repels the wrong one.",
   },
@@ -36,7 +36,7 @@ const slides = [
       "True growth (Barakah) happens when your internal mission and your external expression are perfectly synchronized.",
     highlight: "Beauty is the byproduct of truth.",
     centerImage:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop",
+      "/assets/b3.jpg",
     rightQuote:
       "We prioritize 'Strategic Fit' over 'Creative Trends.' If a design is beautiful but doesn't align with your soul, it is a failure.",
   },
