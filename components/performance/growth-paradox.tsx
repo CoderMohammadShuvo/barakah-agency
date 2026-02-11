@@ -29,8 +29,7 @@ const slides: SlideData[] = [
       "Most agencies optimize for the immediate click, utilizing aggressive discounting and high-frequency ad spend to manufacture artificial revenue spikes.",
     barakahInsight:
       'True growth (Barakah) is organic and compounding. If your marketing does not build "Gravity"—the ability to attract customers without paying for every single touchpoint—you are managing a decline, not a business.',
-    image:
-      "https://images.unsplash.com/photo-1635350736475-c8cef4b21906?q=80&w=1000&auto=format&fit=crop",
+    image: "/assets/pm2.jpg",
     imageCaption: 'The "Sugar-High" Growth Mode',
   },
   {
@@ -43,8 +42,7 @@ const slides: SlideData[] = [
       "Success is traditionally measured by ROAS (Return on Ad Spend) and CPA (Cost Per Acquisition). These metrics look impressive on dashboards but often mask shrinking profit margins.",
     barakahInsight:
       'We prioritize "Return on Impact" alongside ROI. We look at Customer Lifetime Value (LTV) and brand resonance as the true North Star for high-performance growth.',
-    image:
-      "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop",
+    image: "/assets/pm3.jpg",
     imageCaption: "The Attention Extraction Deficit",
   },
   {
@@ -57,8 +55,7 @@ const slides: SlideData[] = [
       "The industry is built on chasing attribution windows and click-through rates, often ignoring the qualitative health of the brand and long-term customer sentiment.",
     barakahInsight:
       'We focus on "Human-Centric Attribution." We measure success through meaningful conversions and brand loyalty, ensuring that every dollar spent contributes to long-term equity.',
-    image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop",
+    image: "/assets/pm4.jpg",
     imageCaption: 'The "Mirage" of Scale',
   },
   {
@@ -71,8 +68,7 @@ const slides: SlideData[] = [
       'Businesses are increasingly dependent on the "Black Box" of platform algorithms. Meta (Facebook), Google, and Apple control reach with ever-changing rules.',
     barakahInsight:
       "We focus on First-Party Data Sovereignty. By building owned ecosystem (Email, SMS, Community), we ensure your growth is stable, predictable, and resilient against platform changes.",
-    image:
-      "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1000&auto=format&fit=crop",
+    image: "/assets/pm5.jpg",
     imageCaption: 'The "Black Box" Dependency',
   },
 ];
@@ -84,7 +80,7 @@ export function GrowthParadox() {
   });
 
   return (
-    <section className="bg-[#FFFCF9] py-24 lg:py-40 overflow-hidden relative">
+    <section className="bg-[#FFFCF9] py-24 lg:py-40 overflow-hidden relative ">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#E76F3D]/5 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#E76F3D]/5 blur-[150px] rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
@@ -119,14 +115,14 @@ export function GrowthParadox() {
         className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-10 px-[5vw] lg:px-[10vw] gap-12 lg:gap-24 relative z-10 pl-8"
       >
         {/* Left Fixed-ish Section: The Performance Problem */}
-        <div className="flex-shrink-0 w-[85vw] lg:w-[450px] snap-start">
+        <div className="flex-shrink-0 max-w-7xl mx-auto lg:w-[450px] snap-start">
           <div className="flex flex-col h-full">
-            <h3 className="text-4xl lg:text-6xl font-bold text-[#3D1A10] mb-10 leading-tight">
+            <h3 className="text-4xl lg:text-6xl font-bold text-[#3D1A10] mb-10 leading-tight ml-4 lg:ml-16">
               The Performance <br /> Problem
             </h3>
-            <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-10 shadow-2xl group">
+            <div className="relative ml-4 lg:ml-16  aspect-[4/5] h-[300] min-w-[260px] rounded-[2.5rem] overflow-hidden mb-10 shadow-2xl group">
               <Image
-                src="https://images.unsplash.com/photo-1544652478-6653e09f18a2?q=80&w=1000&auto=format&fit=crop"
+                src="/assets/pm1.png"
                 alt="Performance Problem"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -135,7 +131,7 @@ export function GrowthParadox() {
             </div>
             <Button
               asChild
-              className="w-fit h-16 px-10 bg-[#E76F3D] hover:bg-[#D46235] text-white rounded-full text-xl font-bold shadow-xl shadow-orange-500/20 group transition-all hover:scale-105"
+              className="w-fit h-16 ml-4 lg:ml-16 px-10 bg-[#E76F3D] hover:bg-[#D46235] text-white rounded-full text-xl font-bold shadow-xl shadow-orange-500/20 group transition-all hover:scale-105"
             >
               <Link href="/contact" className="flex items-center gap-4">
                 Grow with Barakah

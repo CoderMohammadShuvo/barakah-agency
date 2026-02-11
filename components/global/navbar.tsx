@@ -177,11 +177,85 @@ export function Navbar() {
             {/* CTA Button */}
             <Link
               href="/contact"
-              className="hidden sm:inline-flex items-center gap-3 bg-[#E76F3D] text-white hover:bg-[#d46235] transition-all rounded-full pl-6 pr-1.5 py-1.5 font-bold shadow-lg shadow-[#E76F3D]/20"
+              className="
+    hidden sm:inline-flex items-center gap-3
+    bg-[#E76F3D]
+    text-black
+    hover:bg-[#d46235]
+    transition-all
+    rounded-[56px]
+    h-[52px]
+    pl-[20px]
+    pr-[6px]
+    py-[6px]
+    font-bold
+    shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+  "
             >
-              <span className="text-lg">Grow with Barakah</span>
-              <div className="bg-white rounded-full p-2 h-10 w-10 flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-[#E76F3D]" />
+              <span className="text-lg text-black">Grow with Barakah</span>
+
+              <div
+                className="
+                mt-1
+      h-10 w-10
+      flex items-center justify-center
+    "
+              >
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_d_1666_721)">
+                    <circle cx="24" cy="20" r="20" fill="#F8FAFC" />
+                    <path
+                      d="M19.8333 24.1665L28.1666 15.8332M28.1666 15.8332H19.8333M28.1666 15.8332V24.1665"
+                      stroke="black"
+                      stroke-width="1.66667"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_d_1666_721"
+                      x="0"
+                      y="0"
+                      width="48"
+                      height="48"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="4" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite in2="hardAlpha" operator="out" />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_1666_721"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_1666_721"
+                        result="shape"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
               </div>
             </Link>
 
@@ -273,7 +347,23 @@ export function Navbar() {
               <div className="px-4 pt-6 pb-4">
                 <Button
                   asChild
-                  className="w-full bg-[#E76F3D] hover:bg-[#d46235] text-white rounded-full py-6 font-bold text-lg"
+                  className="
+    w-[200px]
+    h-[52px]
+    bg-[#E76F3D]
+    hover:bg-[#d46235]
+    text-black
+    rounded-[56px]
+    font-bold
+    text-lg
+    flex
+    items-center
+    justify-center
+    px-[20px]
+    py-[6px]
+    shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+    transition-all
+  "
                 >
                   <Link href="/contact" onClick={() => setIsOpen(false)}>
                     Grow with Barakah

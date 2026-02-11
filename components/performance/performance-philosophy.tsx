@@ -99,8 +99,7 @@ const philosophyItems = [
     subtitle: "Respectful Acquisition.",
     description:
       "We optimize for the person, not the pixel. By removing aggressive 'fear-based' copywriting and intrusive tracking, we build a brand presence that invites consumers in rather than chasing them down.",
-    image:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/pm7.jpg",
     accentColor: "#E76F3D", // Warm orange
   },
   {
@@ -109,8 +108,7 @@ const philosophyItems = [
     subtitle: "Long-term Vitality.",
     description:
       "Growth shouldn't be a 'burn-out' mission. We focus on building evergreen systems that compound in value over time, ensuring your new customer acquisition cost (nCAC) stabilizes as your brand authority grows.",
-    image:
-      "https://images.unsplash.com/photo-1464938701019-9d5840babf64?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/pm8.jpg",
     accentColor: "#0891B2", // Teal/Cyan
   },
   {
@@ -119,8 +117,7 @@ const philosophyItems = [
     subtitle: "The Trust Moat.",
     description:
       "Integrity is the ultimate multiplier. We track sentiment and brand health alongside ROAS, ensuring that every dollar spent on advertising is an investment in your long-term reputation, not just a one-time transaction.",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/pm6.jpg",
     accentColor: "#3D1A10", // Dark Brown
   },
 ];

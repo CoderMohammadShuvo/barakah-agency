@@ -47,18 +47,13 @@ export function BarakahEcosystemSection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <div className="mb-3">
-                <div
-                  className="text-3xl font-bold mb-1 font-lato"
-                  style={{ fontFamily: "serif" }}
-                >
-                  جيرا
-                </div>
-                <div className="text-xl font-bold font-lato">JIRA</div>
-              </div>
-              <p className="text-sm font-semibold mb-2 font-lato">
-                E-Commerce Marketing Agency
-              </p>
+              <Image
+                src="/assets/lira.png"
+                alt="JIRA E-Commerce Marketing"
+                height={200}
+                width={200}
+                className="object-cover"
+              />
               <p className="text-xs leading-relaxed opacity-90 font-lato">
                 We help purpose-driven e-commerce brands grow with clarity and
                 conscience. Our approach blends ethical performance strategy,
@@ -79,21 +74,13 @@ export function BarakahEcosystemSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               <div className="mb-3 flex items-center gap-2">
-                <svg
-                  className="w-8 h-8"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M3 9h18M9 21V9" />
-                </svg>
-                <div className="text-xl font-bold font-lato">
-                  The Engineering
-                  <br />
-                  Marketing Agency
-                </div>
+                <Image
+                  src="/assets/tema.png"
+                  alt="JIRA E-Commerce Marketing"
+                  height={200}
+                  width={200}
+                  className="object-cover"
+                />
               </div>
               <p className="text-xs leading-relaxed opacity-90 font-lato">
                 We support engineering firms and industrial innovators in
@@ -185,7 +172,13 @@ export function BarakahEcosystemSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               <div className="mb-3">
-                <div className="text-2xl font-bold font-lato">NUBAYIN</div>
+                <Image
+                  src="/assets/nubayin.png"
+                  alt="JIRA E-Commerce Marketing"
+                  height={200}
+                  width={200}
+                  className="object-cover"
+                />
               </div>
               <p className="text-xs leading-relaxed opacity-90 font-lato">
                 NUBAYIN is a storytelling and entertainment studio creating

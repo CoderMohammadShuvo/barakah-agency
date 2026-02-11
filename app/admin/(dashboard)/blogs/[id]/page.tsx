@@ -1,25 +1,28 @@
-"use client"
+"use client";
 
-import React from "react"
+import React from "react";
 
-import { useEffect, useState, use } from "react"
-import { useRouter } from "next/navigation"
-import { createClient } from "@/lib/supabase/client"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Switch } from "@/components/ui/switch"
+import { useEffect, useState, use } from "react";
+import { useRouter } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Switch } from "@/components/ui/switch";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { ArrowLeft, Save, Loader2 } from "lucide-react"
-import Link from "next/link"
+} from "@/components/ui/select";
+import { ArrowLeft, Save, Loader2 } from "lucide-react";
+import Link from "next/link";
+import { RichTextEditor } from "@/components/admin/rich-text-editor";
+import { createBlog, updateBlog } from "@/server/actions";
+import { toast } from "sonner";
 
 const CATEGORIES = [
   "Ethical Marketing",
@@ -28,29 +31,33 @@ const CATEGORIES = [
   "Case Studies",
   "Industry Insights",
   "Tips & Guides",
-]
+];
 
 interface BlogFormData {
-  title: string
-  slug: string
-  excerpt: string
-  content: string
-  cover_image: string
-  category: string
-  tags: string[]
-  meta_title: string
-  meta_description: string
-  published: boolean
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  cover_image: string;
+  category: string;
+  tags: string; // This will be overridden by tagsInput (string) in handleSubmit
+  meta_title: string;
+  meta_description: string;
+  published: boolean;
 }
 
-export default function BlogEditorPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params)
-  const router = useRouter()
-  const supabase = createClient()
-  const isNew = id === "new"
-  
-  const [loading, setLoading] = useState(!isNew)
-  const [saving, setSaving] = useState(false)
+export default function BlogEditorPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = use(params);
+  const router = useRouter();
+  const supabase = createClient();
+  const isNew = id === "new";
+
+  const [loading, setLoading] = useState(!isNew);
+  const [saving, setSaving] = useState(false);
   const [formData, setFormData] = useState<BlogFormData>({
     title: "",
     slug: "",
@@ -58,29 +65,29 @@ export default function BlogEditorPage({ params }: { params: Promise<{ id: strin
     content: "",
     cover_image: "",
     category: "",
-    tags: [],
+    tags: "",
     meta_title: "",
     meta_description: "",
     published: false,
-  })
-  const [tagsInput, setTagsInput] = useState("")
+  });
+  const [tagsInput, setTagsInput] = useState("");
 
   useEffect(() => {
     if (!isNew) {
-      fetchBlog()
+      fetchBlog();
     }
-  }, [id, isNew])
+  }, [id, isNew]);
 
   async function fetchBlog() {
     const { data, error } = await supabase
       .from("blogs")
       .select("*")
       .eq("id", id)
-      .single()
-    
+      .single();
+
     if (error) {
-      console.error("Error fetching blog:", error)
-      router.push("/admin/blogs")
+      console.error("Error fetching blog:", error);
+      router.push("/admin/blogs");
     } else if (data) {
       setFormData({
         title: data.title || "",
@@ -89,21 +96,21 @@ export default function BlogEditorPage({ params }: { params: Promise<{ id: strin
         content: data.content || "",
         cover_image: data.cover_image || "",
         category: data.category || "",
-        tags: data.tags || [],
+        tags: data.tags?.join(", ") || "",
         meta_title: data.meta_title || "",
         meta_description: data.meta_description || "",
         published: data.published || false,
-      })
-      setTagsInput((data.tags || []).join(", "))
+      });
+      setTagsInput((data.tags || []).join(", "));
     }
-    setLoading(false)
+    setLoading(false);
   }
 
   function generateSlug(title: string) {
     return title
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "")
+      .replace(/(^-|-$)/g, "");
   }
 
   function handleTitleChange(title: string) {
@@ -111,45 +118,55 @@ export default function BlogEditorPage({ params }: { params: Promise<{ id: strin
       ...prev,
       title,
       slug: prev.slug || generateSlug(title),
-    }))
+    }));
   }
 
   function handleTagsChange(value: string) {
-    setTagsInput(value)
-    const tags = value.split(",").map((tag) => tag.trim()).filter(Boolean)
-    setFormData((prev) => ({ ...prev, tags }))
+    setTagsInput(value);
+    setFormData((prev) => ({ ...prev, tags: value }));
   }
 
   async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setSaving(true)
+    e.preventDefault();
+    setSaving(true);
 
     const blogData = {
       ...formData,
       slug: formData.slug || generateSlug(formData.title),
-    }
+      tags: tagsInput,
+    };
 
-    if (isNew) {
-      const { error } = await supabase.from("blogs").insert(blogData)
-      if (error) {
-        console.error("Error creating blog:", error)
-        alert("Error creating blog post")
+    try {
+      if (isNew) {
+        const result = await createBlog(blogData);
+        if (result.success) {
+          toast.success("Blog post created successfully");
+          router.push("/admin/blogs");
+        } else {
+          toast.error(
+            typeof result.error === "string"
+              ? result.error
+              : "Failed to create blog",
+          );
+        }
       } else {
-        router.push("/admin/blogs")
+        const result = await updateBlog(id, blogData);
+        if (result.success) {
+          toast.success("Blog post updated successfully");
+          router.push("/admin/blogs");
+        } else {
+          toast.error(
+            typeof result.error === "string"
+              ? result.error
+              : "Failed to update blog",
+          );
+        }
       }
-    } else {
-      const { error } = await supabase
-        .from("blogs")
-        .update(blogData)
-        .eq("id", id)
-      if (error) {
-        console.error("Error updating blog:", error)
-        alert("Error updating blog post")
-      } else {
-        router.push("/admin/blogs")
-      }
+    } catch (err) {
+      console.error("Error saving blog:", err);
+      toast.error("An unexpected error occurred");
     }
-    setSaving(false)
+    setSaving(false);
   }
 
   if (loading) {
@@ -157,7 +174,7 @@ export default function BlogEditorPage({ params }: { params: Promise<{ id: strin
       <div className="flex items-center justify-center py-16">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
-    )
+    );
   }
 
   return (
@@ -216,7 +233,10 @@ export default function BlogEditorPage({ params }: { params: Promise<{ id: strin
                     id="excerpt"
                     value={formData.excerpt}
                     onChange={(e) =>
-                      setFormData((prev) => ({ ...prev, excerpt: e.target.value }))
+                      setFormData((prev) => ({
+                        ...prev,
+                        excerpt: e.target.value,
+                      }))
                     }
                     placeholder="Brief description of the post"
                     rows={3}
@@ -225,15 +245,12 @@ export default function BlogEditorPage({ params }: { params: Promise<{ id: strin
 
                 <div className="space-y-2">
                   <Label htmlFor="content">Content</Label>
-                  <Textarea
-                    id="content"
-                    value={formData.content}
-                    onChange={(e) =>
-                      setFormData((prev) => ({ ...prev, content: e.target.value }))
+                  <RichTextEditor
+                    content={formData.content}
+                    onChange={(content) =>
+                      setFormData((prev) => ({ ...prev, content }))
                     }
-                    placeholder="Write your blog content here (supports Markdown)"
-                    rows={15}
-                    required
+                    placeholder="Write your blog content here..."
                   />
                 </div>
               </CardContent>
@@ -283,7 +300,10 @@ export default function BlogEditorPage({ params }: { params: Promise<{ id: strin
                     id="cover_image"
                     value={formData.cover_image}
                     onChange={(e) =>
-                      setFormData((prev) => ({ ...prev, cover_image: e.target.value }))
+                      setFormData((prev) => ({
+                        ...prev,
+                        cover_image: e.target.value,
+                      }))
                     }
                     placeholder="https://example.com/image.jpg"
                   />
@@ -336,7 +356,10 @@ export default function BlogEditorPage({ params }: { params: Promise<{ id: strin
                     id="meta_title"
                     value={formData.meta_title}
                     onChange={(e) =>
-                      setFormData((prev) => ({ ...prev, meta_title: e.target.value }))
+                      setFormData((prev) => ({
+                        ...prev,
+                        meta_title: e.target.value,
+                      }))
                     }
                     placeholder="SEO title"
                   />
@@ -363,5 +386,5 @@ export default function BlogEditorPage({ params }: { params: Promise<{ id: strin
         </div>
       </form>
     </div>
-  )
+  );
 }
