@@ -4,10 +4,17 @@ import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useState } from "react";
 
 export function Hero() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const handleCenterImageClick = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-background pt-32 pb-20">
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-background pt-32 pb-20 px-4 sm:px-6 lg:px-8">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 select-none">
         <Image
@@ -25,14 +32,15 @@ export function Hero() {
 
       <div className="w-full   mx-auto px-4 lg:px-8 relative z-10 flex flex-col items-center">
         {/* Trust Signal */}
-        <div className="flex flex-col items-center justify-center mb-8 animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:200ms]">
-          <span className="text-sm font-medium text-muted-foreground mb-2 tracking-wide">
+        <div className="flex flex-col items-center justify-center mb-6 sm:mb-8 animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:200ms]">
+          <span className="text-xs sm:text-sm font-medium text-muted-foreground mb-2 tracking-wide text-center px-2">
             Trusted by Purpose-Driven Brands Worldwide
           </span>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
             <svg
-              width="28"
-              height="56"
+              className="hidden sm:block"
+              width="20"
+              height="40"
               viewBox="0 0 28 56"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -48,21 +56,23 @@ export function Hero() {
             <Image
               src="/assets/clutch.svg"
               alt="clutch"
-              height={41}
-              width={42}
+              height={32}
+              width={32}
+              className="w-6 h-6 sm:w-8 sm:h-8"
             />
 
-            <div className="flex gap-1 text-[#DC2626]">
-              {" "}
-              {/* Reddish stars based on image */}
+            <div className="flex gap-0.5 sm:gap-1 text-[#DC2626]">
               {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="w-5 h-5 fill-current" />
+                <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
               ))}
             </div>
-            <span className="text-sm font-bold text-foreground">5.0/5.0</span>
+            <span className="text-xs sm:text-sm font-bold text-foreground">
+              5.0/5.0
+            </span>
             <svg
-              width="28"
-              height="56"
+              className="hidden sm:block"
+              width="20"
+              height="40"
               viewBox="0 0 28 56"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -82,45 +92,47 @@ export function Hero() {
           className="
     font-lato
     font-semibold
-    text-[120px]
-    leading-[120px]
+    text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[120px]
+    leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-[120px]
     tracking-[-0.06em]
     text-[#3F1200]
     text-center
     w-full
-    mb-8
+    mb-6 sm:mb-8
     animate-fade-in opacity-0
     [animation-fill-mode:forwards]
     [animation-delay:400ms]
+    px-4
   "
         >
           Your Ethical Marketing Agency
-          <br className="hidden md:block" />
+          <br className="hidden sm:block" />
           for Impact That Lasts
         </h1>
 
         {/* Subheadline */}
-        <p className="text-xl lg:text-2xl text-[#5c4033] max-w-2xl mx-auto mb-12 font-medium text-center animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:600ms]">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#5c4033] max-w-2xl mx-auto mb-8 sm:mb-12 font-medium text-center animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:600ms] px-4">
           Rooted in Trust. Designed for Growth.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20 animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:800ms]">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 md:mb-20 animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:800ms] w-full max-w-md sm:max-w-none">
           <Button
             asChild
             className="
     bg-[#E76F3D]
     text-white
     font-bold
-    text-lg
+    text-base sm:text-lg
     rounded-[56px]
-
-    px-[20px]
+    w-full sm:w-auto
+    px-[16px] sm:px-[20px]
     py-[6px]
-    h-[52px]
+    h-[48px] sm:h-[52px]
 
     inline-flex
     items-center
+    justify-center
     gap-[10px]
 
     shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
@@ -131,10 +143,10 @@ export function Hero() {
           >
             <Link href="/contact">
               Get Started
-              <div className="h-8 w-8 bg-white rounded-full flex items-center justify-center ">
+              <div className="h-7 w-7 sm:h-8 sm:w-8 bg-white rounded-full flex items-center justify-center ">
                 <svg
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 0 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -157,15 +169,16 @@ export function Hero() {
     bg-[#00A7C7]
     text-white
     font-bold
-    text-lg
+    text-base sm:text-lg
     rounded-[56px]
-
-    px-[20px]
+    w-full sm:w-auto
+    px-[16px] sm:px-[20px]
     py-[6px]
-    h-[52px]
+    h-[48px] sm:h-[52px]
 
     inline-flex
     items-center
+    justify-center
     gap-[10px]
 
     shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
@@ -176,10 +189,10 @@ export function Hero() {
           >
             <Link href="/contact">
               Activate ROI
-              <div className="h-8 w-8 bg-white rounded-full flex items-center justify-center ">
+              <div className="h-7 w-7 sm:h-8 sm:w-8 bg-white rounded-full flex items-center justify-center ">
                 <svg
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 0 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -198,9 +211,19 @@ export function Hero() {
         </div>
 
         {/* Fanned Images Layout */}
-        <div className="relative w-full  max-w-7xl mx-auto h-[300px] md:h-[400px] flex justify-center items-end animate-fade-in-up opacity-0 [animation-fill-mode:forwards] [animation-delay:1000ms]">
+        <div className="relative w-full max-w-7xl mx-auto h-[200px] sm:h-[280px] md:h-[350px] lg:h-[400px] flex justify-center items-end animate-fade-in-up opacity-0 [animation-fill-mode:forwards] [animation-delay:1000ms]">
           {/* Card 1 (Left-most) */}
-          <div className="absolute bottom-0 left-[1%] bottom-[20%] md:left-[1%] w-[160px] md:w-[460px] h-[260px] md:h-[360px] aspect-[3/4]  shadow-2xl -rotate-12 z-10 border-4 border-white transform hover:-translate-y-4 transition-transform duration-500 origin-bottom-right">
+          <div
+            className={`absolute bottom-0 transition-all duration-700 ease-in-out
+              ${
+                isCollapsed
+                  ? "left-1/2 -translate-x-1/2 rotate-0 opacity-0 scale-95 z-[25]"
+                  : "left-[2%] sm:left-[1%] bottom-[10%] sm:bottom-[15%] md:bottom-[20%] -rotate-12 opacity-100 scale-100 z-10"
+              }
+              w-[100px] sm:w-[140px] md:w-[280px] lg:w-[360px] xl:w-[460px] 
+              h-[150px] sm:h-[210px] md:h-[280px] lg:h-[320px] xl:h-[360px] 
+              shadow-2xl border-2 sm:border-4 border-white transform hover:-translate-y-2 sm:hover:-translate-y-4 origin-bottom-right`}
+          >
             <div className="w-full h-full bg-slate-200 overflow-hidden relative">
               <img
                 src="/assets/1.png"
@@ -211,8 +234,18 @@ export function Hero() {
           </div>
 
           {/* Card 2 */}
-          <div className="absolute  left-[15%] md:left-[15%] w-[160px] md:w-[450px] h-[260px] md:h-[360px] aspect-[3/4]  shadow-2xl -rotate-6 z-20 border-4 border-white transform hover:-translate-y-4 transition-transform duration-500 origin-bottom">
-            <div className="w-full h-full bg-slate-200  overflow-hidden relative">
+          <div
+            className={`absolute transition-all duration-700 ease-in-out
+              ${
+                isCollapsed
+                  ? "left-1/2 -translate-x-1/2 rotate-0 opacity-0 scale-95 z-[26]"
+                  : "left-[12%] sm:left-[15%] bottom-0 -rotate-6 opacity-100 scale-100 z-20"
+              }
+              w-[100px] sm:w-[140px] md:w-[280px] lg:w-[360px] xl:w-[450px] 
+              h-[150px] sm:h-[210px] md:h-[280px] lg:h-[320px] xl:h-[360px] 
+              shadow-2xl border-2 sm:border-4 border-white transform hover:-translate-y-2 sm:hover:-translate-y-4 origin-bottom`}
+          >
+            <div className="w-full h-full bg-slate-200 overflow-hidden relative">
               <img
                 src="/assets/2.png"
                 alt="Work 2"
@@ -221,10 +254,20 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Card 3 (Center) */}
-          <div className="absolute bottom-12 w-[280px] md:w-[460] aspect-video md:aspect-[4/3] shadow-2xl z-30 border-4 border-white transform hover:-translate-y-4 transition-transform duration-500">
-            <div className="w-full h-full bg-white  overflow-hidden relative flex items-center justify-center p-2">
-              {/* Placeholder for "Synco" or branding */}
+          {/* Card 3 (Center) - Clickable */}
+          <div
+            onClick={handleCenterImageClick}
+            className={`absolute bottom-6 sm:bottom-8 md:bottom-12 transition-all duration-700 ease-in-out cursor-pointer
+              ${
+                isCollapsed
+                  ? "scale-110 shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+                  : "scale-100 shadow-2xl"
+              }
+              w-[180px] sm:w-[220px] md:w-[280px] lg:w-[340px] xl:w-[400px]
+              aspect-video md:aspect-[4/3] 
+              z-30 border-2 sm:border-4 border-white transform hover:-translate-y-2 sm:hover:-translate-y-4 hover:scale-105`}
+          >
+            <div className="w-full h-full bg-white overflow-hidden relative flex items-center justify-center p-1 sm:p-2">
               <img
                 src="/assets/3.png"
                 alt="Work 3"
@@ -234,8 +277,18 @@ export function Hero() {
           </div>
 
           {/* Card 4 */}
-          <div className="absolute bottom-8 right-[15%] md:right-[15%] w-[160px] md:w-[460px] h-[260px] md:h-[360px] aspect-[3/4]  shadow-2xl rotate-6 z-20 border-4 border-white transform hover:-translate-y-4 transition-transform duration-500 origin-bottom">
-            <div className="w-full h-full bg-slate-200  overflow-hidden relative">
+          <div
+            className={`absolute transition-all duration-700 ease-in-out
+              ${
+                isCollapsed
+                  ? "left-1/2 -translate-x-1/2 rotate-0 opacity-0 scale-95 z-[26]"
+                  : "bottom-0 right-[12%] sm:right-[15%] rotate-6 opacity-100 scale-100 z-20"
+              }
+              w-[100px] sm:w-[140px] md:w-[280px] lg:w-[360px] xl:w-[460px] 
+              h-[150px] sm:h-[210px] md:h-[280px] lg:h-[320px] xl:h-[360px] 
+              shadow-2xl border-2 sm:border-4 border-white transform hover:-translate-y-2 sm:hover:-translate-y-4 origin-bottom`}
+          >
+            <div className="w-full h-full bg-slate-200 overflow-hidden relative">
               <img
                 src="/assets/4.png"
                 alt="Work 4"
@@ -245,8 +298,18 @@ export function Hero() {
           </div>
 
           {/* Card 5 (Right-most) */}
-          <div className="absolute bottom-[20%] right-[1%] md:right-[1%] w-[160px] md:w-[460px] h-[260px] md:h-[360px] aspect-[3/4]  shadow-2xl rotate-12 z-10 border-4 border-white transform hover:-translate-y-4 transition-transform duration-500 origin-bottom-left">
-            <div className="w-full h-full bg-slate-200   overflow-hidden relative">
+          <div
+            className={`absolute transition-all duration-700 ease-in-out
+              ${
+                isCollapsed
+                  ? "left-1/2 -translate-x-1/2 rotate-0 opacity-0 scale-95 z-[25]"
+                  : "bottom-[10%] sm:bottom-[15%] md:bottom-[20%] right-[2%] sm:right-[1%] rotate-12 opacity-100 scale-100 z-10"
+              }
+              w-[100px] sm:w-[140px] md:w-[280px] lg:w-[360px] xl:w-[460px] 
+              h-[150px] sm:h-[210px] md:h-[280px] lg:h-[320px] xl:h-[360px] 
+              shadow-2xl border-2 sm:border-4 border-white transform hover:-translate-y-2 sm:hover:-translate-y-4 origin-bottom-left`}
+          >
+            <div className="w-full h-full bg-slate-200 overflow-hidden relative">
               <img
                 src="/assets/5.png"
                 alt="Work 5"
@@ -257,10 +320,10 @@ export function Hero() {
         </div>
 
         {/* Footer Credit */}
-        <div className="absolute bottom-[-50px] left-0 right-0 text-center">
-          <p className="text-20PX text-[#3F1200] font-bold">
-            Brand Impact, Powered by The Barakah <br /> Method and Mesghali
-            Studio
+        <div className="absolute bottom-[-30px] sm:bottom-[-40px] md:bottom-[-50px] left-0 right-0 text-center px-4">
+          <p className="text-xs sm:text-sm md:text-base lg:text-[20px] text-[#3F1200] font-bold">
+            Brand Impact, Powered by The Barakah <br className="sm:hidden" />{" "}
+            Method and Mesghali Studio
           </p>
         </div>
       </div>

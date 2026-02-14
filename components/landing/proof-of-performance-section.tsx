@@ -184,7 +184,7 @@ export function ProofOfPerformanceSection() {
                     {study.logo && (
                       <Image
                         src={study.logo}
-                        alt={study.logoSubtext}
+                        alt={study.logoSubtext || study.title}
                         width={300}
                         height={300}
                         className="mb-4"
@@ -206,6 +206,23 @@ export function ProofOfPerformanceSection() {
                       <rect width="100%" height="100%" fill="url(#pattern)" />
                     </svg>
                   </div>
+
+                  {/* View Case Study Hover Button */}
+                  <motion.div
+                    variants={{
+                      initial: { y: "150%" },
+                      expanded: { y: "0%" },
+                    }}
+                    transition={{ duration: 0.4, ease: "backOut" }}
+                    className="absolute bottom-6 left-6 right-6 h-[72px] rounded-full bg-gradient-to-r from-[#051835] via-[#0b2245] to-[#051835] flex items-center justify-between px-8 z-30 shadow-2xl border border-white/10"
+                  >
+                    <span className="text-white font-lato font-bold text-xl tracking-tight">
+                      View Case Study
+                    </span>
+                    <div className="h-12 w-12 bg-white rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-300 hover:scale-110">
+                      <ArrowRight className="text-[#f59e5f] h-6 w-6 stroke-[3px]" />
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>

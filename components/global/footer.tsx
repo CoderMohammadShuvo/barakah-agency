@@ -15,11 +15,11 @@ import Image from "next/image";
 export function Footer() {
   return (
     <footer className="bg-[#FFF5F0] pt-20 pb-10">
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
           {/* Column 1: The Barakah System */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-[#381e11] font-lato">
+            <h3 className="text-4xl font-bold text-[#381e11] font-lato">
               The Barakah System
             </h3>
             <ul className="space-y-3">
@@ -32,7 +32,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[#5c4033] hover:text-[#e76f51] transition-colors font-lato"
+                    className="text-[#5c4033] text-lg hover:text-[#e76f51] transition-colors font-lato"
                   >
                     {link.name}
                   </Link>
@@ -53,7 +53,7 @@ export function Footer() {
                   href={social.href}
                   className="w-10 h-10 rounded-full bg-[#E76F3D] flex items-center justify-center text-white hover:opacity-90 transition-opacity"
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className="h-5 w-5 text-black" />
                 </a>
               ))}
             </div>
@@ -61,7 +61,7 @@ export function Footer() {
 
           {/* Column 2: The Components */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-[#381e11] font-lato">
+            <h3 className="text-4xl font-bold text-[#381e11] font-lato">
               The Components
             </h3>
             <ul className="space-y-3">
@@ -73,7 +73,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[#5c4033] hover:text-[#e76f51] transition-colors font-lato"
+                    className="text-[#5c4033] text-lg hover:text-[#e76f51] transition-colors font-lato"
                   >
                     {link.name}
                   </Link>
@@ -84,7 +84,7 @@ export function Footer() {
 
           {/* Column 3: Resources */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-[#381e11] font-lato">
+            <h3 className="text-4xl font-bold text-[#381e11] font-lato">
               Resources
             </h3>
             <ul className="space-y-3">
@@ -97,7 +97,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[#5c4033] hover:text-[#e76f51] transition-colors font-lato"
+                    className="text-[#5c4033] hover:text-[#e76f51] transition-colors font-lato text-lg"
                   >
                     {link.name}
                   </Link>
@@ -108,7 +108,7 @@ export function Footer() {
 
           {/* Column 4: Newsletter */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-[#1a1a1a] leading-tight font-lato max-w-[280px]">
+            <h3 className="text-4xl font-bold text-[#1a1a1a] leading-tight font-lato ">
               Get the latest ethical marketing ideas, strategies, and best
               practices delivered to your inbox every month.
             </h3>
@@ -128,7 +128,19 @@ export function Footer() {
                 type="email"
                 className="rounded-full bg-transparent border-[#E76F3D]/20 placeholder:text-[#E76F3D]/40 font-lato focus-visible:ring-[#E76F3D]"
               />
-              <Button className="rounded-full bg-[#E76F3D] hover:bg-[#d46235] text-white px-6 font-lato font-semibold flex items-center gap-2 group">
+              <Button
+                className="rounded-full bg-[#E76F3D]
+    text-black
+    hover:bg-[#d46235]
+    transition-all
+    rounded-[56px]
+    h-[52px]
+    pl-[20px]
+    pr-[6px]
+    py-[6px]
+    font-bold
+    shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)] px-6 font-lato font-semibold flex items-center gap-2 group"
+              >
                 Get Updated
                 <div className="bg-white rounded-full p-1 text-[#E76F3D]">
                   <ArrowRight className="h-3 w-3" />
