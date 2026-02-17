@@ -90,16 +90,99 @@ export function WhyBarakah() {
             </h3>
 
             {/* CTA Button */}
-            <Button
-              asChild
-              size="lg"
-              className="rounded-full px-8 h-12 text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-105 font-lato"
-            >
-              <Link href="/why-barakah">
-                Why Customers Trust Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row items-center justify-start gap-3 sm:gap-4 mb-12 sm:mb-16 md:mb-20 animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:800ms] w-full max-w-md sm:max-w-none">
+              <Button
+                asChild
+                className="
+    bg-[#E76F3D]
+    text-white
+    font-bold
+    text-base sm:text-lg
+    rounded-[56px]
+    w-full sm:w-auto
+    px-[16px] sm:px-[20px]
+    py-[6px]
+    h-[48px] sm:h-[52px]
+
+    inline-flex
+    items-center
+    justify-center
+    gap-[10px]
+
+    shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+
+    hover:bg-[#d46235]
+    transition-all
+  "
+              >
+                <Link href="/about">
+                  Why Choose Barakah
+                  <div className="h-7 w-7 sm:h-8 sm:w-8 bg-white rounded-full flex items-center justify-center ">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4.10744 9.99986H15.8926M15.8926 9.99986L10 4.1073M15.8926 9.99986L10 15.8924"
+                        stroke="black"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </Link>
+              </Button>
+
+              <Button
+                asChild
+                className="
+    bg-[#00A7C7]
+    text-white
+    font-bold
+    text-base sm:text-lg
+    rounded-[56px]
+    w-full sm:w-auto
+    px-[16px] sm:px-[20px]
+    py-[6px]
+    h-[48px] sm:h-[52px]
+
+    inline-flex
+    items-center
+    justify-center
+    gap-[10px]
+
+    shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+
+    hover:bg-[#d46235]
+    transition-all
+  "
+              >
+                <Link href="/about">
+                  Meet the Team
+                  <div className="h-7 w-7 sm:h-8 sm:w-8 bg-white rounded-full flex items-center justify-center ">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4.10744 9.99986H15.8926M15.8926 9.99986L10 4.1073M15.8926 9.99986L10 15.8924"
+                        stroke="black"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

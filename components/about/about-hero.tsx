@@ -17,7 +17,7 @@ export function AboutHero() {
       {/* Background Radial Glow & Concentric Circles */}
       <div className="absolute inset-0 z-0 select-none">
         <Image
-          src="/assets/hero-bg.png"
+          src="/assets/aboutherobg.png"
           alt="Background"
           fill
           className="object-fit object-top opacity-40 mix-blend-multiply"
@@ -31,7 +31,7 @@ export function AboutHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto space-y-8"
+          className="w-full mx-auto space-y-8"
         >
           {/* Subheading */}
           <motion.span
@@ -48,7 +48,19 @@ export function AboutHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-5xl md:text-7xl lg:text-7xl font-black text-[#381E11] leading-[1.1] tracking-tighter font-lato"
+            className="font-lato
+    font-semibold
+    text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[120px]
+    leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-[120px]
+    tracking-[-0.06em]
+    text-[#3F1200]
+    text-center
+    w-full
+    mb-6 sm:mb-8
+    animate-fade-in opacity-0
+    [animation-fill-mode:forwards]
+    [animation-delay:400ms]
+    px-4"
           >
             Marketing That Honors Purpose, People, and Planet.
           </motion.h1>
@@ -58,7 +70,7 @@ export function AboutHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-lg md:text-2xl text-[#5C4033] max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-4xl text-[#5C4033] w-full mx-auto leading-relaxed"
           >
             Barakah Agency partners with top brands worldwide to preserve their
             values, strengthen their reputation, and design ethical marketing
@@ -74,11 +86,85 @@ export function AboutHero() {
           >
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 bg-[#E76F3D] text-white hover:bg-[#d46235] transition-all rounded-full pl-8 pr-2 py-2 font-bold shadow-xl shadow-[#E76F3D]/20 group"
+              className="
+    hidden sm:inline-flex items-center gap-3
+    bg-[#E76F3D]
+    text-black
+    hover:bg-[#d46235]
+    transition-all
+    rounded-[56px]
+    h-[52px]
+    pl-[20px]
+    pr-[6px]
+    py-[6px]
+    font-bold
+    shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+  "
             >
-              <span className="text-xl">Grow With Barakah</span>
-              <div className="bg-white rounded-full p-2 h-12 w-12 flex items-center justify-center transition-transform group-hover:translate-x-1">
-                <ArrowRight className="h-6 w-6 text-[#E76F3D]" />
+              <span className="text-lg text-white">Grow with Barakah</span>
+
+              <div
+                className="
+                mt-1
+      h-10 w-10
+      flex items-center justify-center
+    "
+              >
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_d_1666_721)">
+                    <circle cx="24" cy="20" r="20" fill="#F8FAFC" />
+                    <path
+                      d="M19.8333 24.1665L28.1666 15.8332M28.1666 15.8332H19.8333M28.1666 15.8332V24.1665"
+                      stroke="black"
+                      stroke-width="1.66667"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_d_1666_721"
+                      x="0"
+                      y="0"
+                      width="48"
+                      height="48"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="4" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite in2="hardAlpha" operator="out" />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_1666_721"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_1666_721"
+                        result="shape"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
               </div>
             </Link>
           </motion.div>

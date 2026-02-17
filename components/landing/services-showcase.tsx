@@ -119,151 +119,14 @@ export function ServicesShowcase() {
 
               {/* Visual Element - Scattered to Grid Images */}
               <div className="flex-1 flex items-center justify-center mb-12 min-h-[340px]">
-                <div className="relative w-full h-[300px] perspective-1000">
-                  {/* Image 1 */}
-                  <motion.div
-                    className="absolute w-[45%] aspect-[4/3] rounded-lg overflow-hidden shadow-xl border-2 border-white/40"
-                    variants={{
-                      rest: {
-                        x: "-10%",
-                        y: "5%",
-                        rotate: -18,
-                        zIndex: 20,
-                      },
-                      hover: {
-                        x: "-55%",
-                        y: "-25%",
-                        rotate: -12,
-                        zIndex: 20,
-                      },
-                    }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <Image
-                      src="/assets/1.png"
-                      alt="Branding 1"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 46vw, 15vw"
-                    />
-                  </motion.div>
-
-                  {/* Image 2 */}
-                  <motion.div
-                    className="absolute w-[45%] aspect-[4/3] rounded-lg overflow-hidden shadow-xl border-2 border-white/40"
-                    variants={{
-                      rest: {
-                        x: "70%",
-                        y: "0%",
-                        rotate: 18,
-                        zIndex: 10,
-                      },
-                      hover: {
-                        x: "120%",
-                        y: "-30%",
-                        rotate: 12,
-                        zIndex: 10,
-                      },
-                    }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <Image
-                      src="/assets/2.png"
-                      alt="Branding 2"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 46vw, 15vw"
-                    />
-                  </motion.div>
-
-                  {/* Image 3 */}
-                  <motion.div
-                    className="absolute w-[70%] aspect-[16/9] rounded-lg overflow-hidden shadow-2xl border-4 border-white"
-                    variants={{
-                      rest: {
-                        x: "15%",
-                        y: "35%",
-                        rotate: -5,
-                        opacity: 1,
-                        zIndex: 50,
-                      },
-                      hover: {
-                        scale: 1.05,
-                        rotate: 0,
-                        zIndex: 50,
-                      },
-                    }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <div className="absolute inset-0 bg-black/20 z-10" />
-                    <Image
-                      src="/assets/3.png"
-                      alt="Branding Main"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 70vw, 30vw"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center z-20">
-                      {/* Logo or Center Content if needed, usually in image */}
-                    </div>
-                  </motion.div>
-
-                  {/* Image 4 */}
-                  <motion.div
-                    className="absolute w-[40%] aspect-[4/3] rounded-lg overflow-hidden shadow-xl border-2 border-white/40"
-                    variants={{
-                      rest: {
-                        x: "-10%",
-                        y: "80%",
-                        rotate: 8,
-                        zIndex: 30,
-                      },
-                      hover: {
-                        x: "-55%",
-                        y: "110%",
-                        rotate: -5,
-                        zIndex: 30,
-                      },
-                    }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <Image
-                      src="/assets/4.png"
-                      alt="Branding 4"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 33vw, 10vw"
-                    />
-                  </motion.div>
-
-                  {/* Image 5 */}
-                  <motion.div
-                    className="absolute w-[40%] aspect-[4/3] rounded-lg overflow-hidden shadow-xl border-2 border-white/40"
-                    variants={{
-                      rest: {
-                        x: "75%",
-                        y: "75%",
-                        rotate: -12,
-                        zIndex: 20,
-                      },
-                      hover: {
-                        x: "120%",
-                        y: "105%",
-                        rotate: 5,
-                        zIndex: 20,
-                      },
-                    }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <Image
-                      src="/assets/5.png"
-                      alt="Branding 5"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 33vw, 10vw"
-                    />
-                  </motion.div>
-                </div>
+                <Image
+                  src="/assets/branding.png"
+                  alt="Branding & Identity"
+                  height={340}
+                  width={340}
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
 
               {/* CTA Button */}
@@ -350,28 +213,7 @@ export function ServicesShowcase() {
   "
           >
             {/* Decorative Pattern */}
-            <div className="absolute bottom-0 left-0 right-0 h-64 opacity-30">
-              <svg viewBox="0 0 400 200" className="w-full h-full">
-                <path
-                  d="M0,100 Q100,50 200,100 T400,100"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.3)"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M0,120 Q100,70 200,120 T400,120"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.3)"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M0,140 Q100,90 200,140 T400,140"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.3)"
-                  strokeWidth="2"
-                />
-              </svg>
-            </div>
+            <div className="absolute bottom-0 left-0 right-0 h-64 opacity-30"></div>
 
             <div className="relative z-10 flex-1 flex flex-col">
               <h3 className="text-2xl sm:text-3xl md:text-[36px] font-bold text-white mb-2 italic font-lato">
@@ -393,14 +235,13 @@ export function ServicesShowcase() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                 className="flex-1 flex items-end justify-center mb-8"
               >
-                <div className="relative w-48 h-48">
+                <div className="relative w-full h-full">
                   {/* Concentric circles */}
                   <Image
-                    src="/assets/selected-value.png"
+                    src="/assets/graph.png"
                     alt="Radar"
                     className="w-full h-full object-cover"
-                    height={400}
-                    width={200}
+                    fill
                   />
                 </div>
               </motion.div>
@@ -505,26 +346,7 @@ export function ServicesShowcase() {
           >
             {/* Decorative Pattern */}
             <div className="absolute bottom-0 left-0 right-0 h-64 opacity-30">
-              <svg viewBox="0 0 400 200" className="w-full h-full">
-                <path
-                  d="M0,100 Q100,50 200,100 T400,100"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.3)"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M0,120 Q100,70 200,120 T400,120"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.3)"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M0,140 Q100,90 200,140 T400,140"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.3)"
-                  strokeWidth="2"
-                />
-              </svg>
+              
             </div>
 
             <div className="relative z-10 flex-1 flex flex-col">
@@ -547,40 +369,14 @@ export function ServicesShowcase() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
                 className="flex-1 flex items-end justify-center mb-8"
               >
-                <div className="relative w-56 h-40">
-                  {/* Chart background */}
-                  <svg viewBox="0 0 200 120" className="w-full h-full">
-                    {/* Growth curve */}
-                    <path
-                      d="M10,110 Q50,100 80,70 T150,30"
-                      fill="none"
-                      stroke="rgba(139,0,0,0.6)"
-                      strokeWidth="3"
-                      strokeDasharray="4,4"
-                    />
-                    <path
-                      d="M10,110 Q50,100 80,70 T150,30 L150,120 L10,120 Z"
-                      fill="rgba(139,0,0,0.2)"
-                    />
-                  </svg>
-
-                  {/* Metric card */}
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur rounded-lg px-4 py-2 shadow-lg border border-white">
-                    <div className="text-xs text-gray-600 mb-1">
-                      29 July 00:00
-                    </div>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-2xl font-bold text-gray-900">
-                        220,342.76
-                      </span>
-                      <span className="text-[18px] font-semibold text-green-600 bg-green-100 px-2 py-0.5 rounded">
-                        +3.4%
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Data point indicator */}
-                  <div className="absolute top-8 right-12 w-3 h-3 bg-white rounded-full border-2 border-red-800"></div>
+                 <div className="relative w-full h-full">
+                  {/* Concentric circles */}
+                  <Image
+                    src="/assets/thirdcard.png"
+                    alt="Radar"
+                    className="w-full h-full object-cover"
+                    fill
+                  />
                 </div>
               </motion.div>
 
