@@ -11,7 +11,7 @@ export function FinalCTASection({
 }) {
   return (
     <section
-      className="relative py-20 md:py-32 overflow-hidden bg-background"
+      className="relative py-20 md:py-32 overflow-hidden bg-background min-h-[80vh]"
       style={{
         backgroundImage: "url('/assets/cta-bg.png')",
         backgroundSize: "cover",
@@ -38,12 +38,47 @@ export function FinalCTASection({
           {/* CTA Button */}
           <Button
             asChild
-            size="lg"
-            className="rounded-full px-8 h-14 text-lg font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-105 font-lato"
+            className="
+              bg-[#E76F3D]
+              text-white
+              font-bold
+              text-base sm:text-lg
+              rounded-[56px]
+              w-full sm:w-auto
+              px-[16px] sm:px-[20px]
+              py-[6px]
+              h-[48px] sm:h-[52px]
+          
+              inline-flex
+              items-center
+              justify-center
+              gap-[10px]
+          
+              shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+          
+              hover:bg-[#d46235]
+              transition-all
+            "
           >
             <Link href="/contact">
-              {buttonLabel}
-              <ArrowRight className="ml-2 h-5 w-5" />
+              Grow with Barakah
+              <div className="h-7 w-7 sm:h-8 sm:w-8 bg-white rounded-full flex items-center justify-center ">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.10744 9.99986H15.8926M15.8926 9.99986L10 4.1073M15.8926 9.99986L10 15.8924"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
             </Link>
           </Button>
         </div>

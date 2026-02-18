@@ -345,9 +345,7 @@ export function ServicesShowcase() {
   "
           >
             {/* Decorative Pattern */}
-            <div className="absolute bottom-0 left-0 right-0 h-64 opacity-30">
-              
-            </div>
+            <div className="absolute bottom-0 left-0 right-0 h-64 opacity-30"></div>
 
             <div className="relative z-10 flex-1 flex flex-col">
               <h3 className="text-2xl sm:text-3xl md:text-[36px] font-bold text-white mb-2 italic font-lato">
@@ -369,7 +367,7 @@ export function ServicesShowcase() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
                 className="flex-1 flex items-end justify-center mb-8"
               >
-                 <div className="relative w-full h-full">
+                <div className="relative w-full h-full">
                   {/* Concentric circles */}
                   <Image
                     src="/assets/thirdcard.png"
@@ -444,6 +442,54 @@ export function ServicesShowcase() {
               </Button>
             </div>
           </motion.div>
+        </div>
+
+        <div className="flex justify-center mt-20">
+          <Button
+            asChild
+            className="
+              bg-[#E76F3D]
+              text-white
+              font-bold
+              text-base sm:text-lg
+              rounded-[56px]
+              w-full sm:w-auto
+              px-[16px] sm:px-[20px]
+              py-[6px]
+              h-[48px] sm:h-[52px]
+          
+              inline-flex
+              items-center
+              justify-center
+              gap-[10px]
+          
+              shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+          
+              hover:bg-[#d46235]
+              transition-all
+            "
+          >
+            <Link href="/about">
+              Learn More
+              <div className="h-7 w-7 sm:h-8 sm:w-8 bg-white rounded-full flex items-center justify-center ">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.10744 9.99986H15.8926M15.8926 9.99986L10 4.1073M15.8926 9.99986L10 15.8924"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

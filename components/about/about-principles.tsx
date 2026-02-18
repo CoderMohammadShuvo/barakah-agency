@@ -43,6 +43,8 @@ const principles = [
   },
 ];
 
+const placeholders = Array(Math.max(0, 3 - principles.length)).fill(null);
+
 export function AboutPrinciples() {
   return (
     <section className="py-24 bg-white max-w-7xl mx-auto">
@@ -71,7 +73,7 @@ export function AboutPrinciples() {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {principles.map((principle, idx) => (
             <motion.div
               key={principle.number}
@@ -81,7 +83,7 @@ export function AboutPrinciples() {
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className={cn(
                 "group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer",
-                idx < 3 ? "lg:col-span-2" : "lg:col-span-3",
+                idx < 3 ? "lg:col-span-1" : "",
               )}
             >
               {/* Background Image */}
@@ -92,7 +94,7 @@ export function AboutPrinciples() {
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
-              {/* Overlays */}
+              {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#00A3C4]/90 via-[#00A3C4]/20 to-transparent" />
 
               {/* Content */}
@@ -106,7 +108,6 @@ export function AboutPrinciples() {
                   </h3>
                 </div>
 
-                {/* Sliding Description */}
                 <div className="max-h-0 group-hover:max-h-32 overflow-hidden transition-all duration-500 ease-in-out">
                   <p className="text-white/90 text-sm md:text-base leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     {principle.description}
@@ -114,6 +115,14 @@ export function AboutPrinciples() {
                 </div>
               </div>
             </motion.div>
+          ))}
+
+          {/* --- Placeholder grid items --- */}
+          {placeholders.map((_, i) => (
+            <div
+              key={`placeholder-${i}`}
+              className="aspect-[4/5] rounded-3xl bg-transparent"
+            />
           ))}
         </div>
       </div>

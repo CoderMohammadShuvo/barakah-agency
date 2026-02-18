@@ -9,22 +9,22 @@ import Image from "next/image";
 const caseStudies = [
   {
     id: 1,
-    title: "Days of Eid",
-    logo: "/assets/daysofeid.png",
+    title: "Fulers Finance",
+    logo: "/assets/fulers.png",
     logoColor: "#d4a574",
-    tags: ["eCommerce Marketing Strategy", "Paid Media"],
+    tags: ["Digital Marketing", "Web Development"],
     description:
       "We begin by deeply understanding your mission, values, and the impact you want to create. Every strategy is aligned with your ethical foundations, cultural context, and long-term vision, ensuring your marketing reflects what your brand truly stands for, not just what it sells.",
     metrics: [
-      { label: "Purchases", value: "272" },
-      { label: "Attributed Sales Via Paid Media", value: "$12,049" },
+      { label: "YOY increase in Revenue`", value: "160%" },
+      { label: "Increased Revenue", value: "24x" },
     ],
     bgColor: "from-orange-200 to-orange-300",
   },
   {
     id: 2,
     title: "Fadwa Masala",
-    logo: "/assets/fadwamasala.png",
+    logo: "/assets/fulers.png",
     logoColor: "#b8449d",
     tags: ["eCommerce Marketing Strategy", "Paid Media"],
     description:
@@ -38,7 +38,7 @@ const caseStudies = [
   {
     id: 3,
     title: "Halal Expo",
-    logo: "/assets/halalexpo.png",
+    logo: "/assets/fulers.png",
     logoSubtext: "6TH US International",
     logoColor: "#5a7ba8",
     tags: ["Event Marketing Strategy", "Paid Media"],
@@ -50,7 +50,7 @@ const caseStudies = [
   {
     id: 4,
     title: "Ten Peaks Shuttle & Tours",
-    logo: "/assets/tenpeaks.png",
+    logo: "/assets/fulers.png",
     logoColor: "#2563eb",
     tags: ["Tourism Marketing Strategy", "Paid Media"],
     description:
@@ -67,10 +67,10 @@ export function ProofOfPerformanceSection() {
         {/* Section Header */}
         <div className="text-center mb-4">
           <p className="text-sm font-semibold text-[#381e11] mb-2 font-lato">
-            • Results •
+            • Our Works •
           </p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#381e11] mb-16 font-lato">
-            Proof of Performance. Built for Legacy.
+            Stories of Purposeful Growth
           </h2>
         </div>
 
@@ -81,13 +81,13 @@ export function ProofOfPerformanceSection() {
               key={study.id}
               initial="initial"
               whileHover="expanded"
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500 cursor-pointer border border-stone-100"
+              className="bg-white  overflow-hidden  hover:shadow-2xl transition-shadow duration-500 cursor-pointer border-b pb-4 border-black-100"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 h-full min-h-[300px]">
+              <div className="grid grid-cols-1 lg:grid-cols-2 h-full min-h-[200px] p-10">
                 {/* Left Column - Info */}
-                <div className="p-10 flex flex-col justify-center relative z-10">
+                <div className=" pr-10 flex flex-col justify-center relative z-10 ">
                   <div className="w-full">
-                    <h3 className="text-3xl font-bold text-[#381e11] mb-6 font-lato italic">
+                    <h3 className="text-3xl font-bold text-[#381e11] mb-6 font-lato">
                       {study.title}
                     </h3>
 
@@ -128,13 +128,13 @@ export function ProofOfPerformanceSection() {
 
                       {/* Metrics */}
                       {study.metrics.length > 0 && (
-                        <div className="flex gap-10 mb-8 p-6 bg-stone-50 rounded-2xl">
+                        <div className="flex gap-10 mb-8 p-6  rounded-2xl">
                           {study.metrics.map((metric, idx) => (
                             <div key={idx}>
-                              <div className="text-3xl font-black text-[#381e11] font-lato">
+                              <div className="text-[84px] font-bold italic text-[#381e11] font-lato">
                                 {metric.value}
                               </div>
-                              <div className="text-[10px] uppercase italic tracking-widest text-[#5c4033] font-lato font-bold mt-1">
+                              <div className="text-[10px] uppercase  tracking-widest text-[#5c4033] font-lato font-bold mt-1">
                                 {metric.label}
                               </div>
                             </div>
@@ -153,17 +153,6 @@ export function ProofOfPerformanceSection() {
                             </span>
                           ))}
                         </div>
-
-                        <Button
-                          asChild
-                          variant="ghost"
-                          className="group/btn rounded-full font-lato font-bold text-[#381e11] hover:bg-[#381e11] hover:text-white transition-all flex items-center"
-                        >
-                          <Link href={`/case-studies/${study.id}`}>
-                            Study
-                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                          </Link>
-                        </Button>
                       </div>
                     </motion.div>
                   </div>
@@ -171,7 +160,8 @@ export function ProofOfPerformanceSection() {
 
                 {/* Right Column - Logo */}
                 <div
-                  className={`relative overflow-hidden bg-gradient-to-br ${study.bgColor} p-12 flex items-center justify-center min-h-[300px]`}
+                  className={`relative overflow-hidden rounded-3xl bg-cover bg-center  p-12 flex items-center justify-center min-h-[200px]`}
+                  style={{ backgroundImage: `url(${study.logo})` }}
                 >
                   <motion.div
                     variants={{
@@ -181,7 +171,7 @@ export function ProofOfPerformanceSection() {
                     transition={{ duration: 0.8, ease: "circOut" }}
                     className="text-center relative z-10"
                   >
-                    {study.logo && (
+                    {/* {study.logo && (
                       <Image
                         src={study.logo}
                         alt={study.logoSubtext || study.title}
@@ -189,7 +179,7 @@ export function ProofOfPerformanceSection() {
                         height={300}
                         className="mb-4"
                       />
-                    )}
+                    )} */}
                   </motion.div>
 
                   {/* Subtle Overlay Pattern */}
@@ -214,7 +204,7 @@ export function ProofOfPerformanceSection() {
                       expanded: { y: "0%" },
                     }}
                     transition={{ duration: 0.4, ease: "backOut" }}
-                    className="absolute bottom-6 left-6 right-6 h-[72px] rounded-full bg-gradient-to-r from-[#051835] via-[#0b2245] to-[#051835] flex items-center justify-between px-8 z-30 shadow-2xl border border-white/10"
+                    className="absolute bottom-6 left-6 right-6 h-[72px] rounded-full bg-black/30 backdrop-blur-xl flex items-center justify-between px-8 z-30 shadow-2xl border border-white/10"
                   >
                     <span className="text-white font-lato font-bold text-xl tracking-tight">
                       View Case Study

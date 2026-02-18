@@ -36,9 +36,9 @@ export function BarakahEcosystemSection() {
         </div>
 
         {/* Brand Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {/* Card 1 - JIRA */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[400px] shadow-lg hover:shadow-xl transition-all">
+        <div className="flex flex-wrap justify-center gap-6 mb-12">
+          {/* Card 1 */}
+          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all">
             <Image
               src="/assets/11.png"
               alt="JIRA E-Commerce Marketing"
@@ -49,22 +49,21 @@ export function BarakahEcosystemSection() {
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               <Image
                 src="/assets/lira.png"
-                alt="JIRA E-Commerce Marketing"
-                height={200}
-                width={200}
-                className="object-cover"
+                alt="JIRA Logo"
+                height={120}
+                width={120}
+                className="object-contain mb-3"
               />
               <p className="text-xs leading-relaxed opacity-90 font-lato">
                 We help purpose-driven e-commerce brands grow with clarity and
                 conscience. Our approach blends ethical performance strategy,
-                intentional community-building, and culturally aware creative to
-                build lasting customer relationships.
+                intentional community-building, and culturally aware creative.
               </p>
             </div>
           </div>
 
-          {/* Card 2 - Engineering Marketing Agency */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[400px] shadow-lg hover:shadow-xl transition-all">
+          {/* Card 2 */}
+          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all">
             <Image
               src="/assets/22.jpg"
               alt="Engineering Marketing Agency"
@@ -73,119 +72,79 @@ export function BarakahEcosystemSection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <div className="mb-3 flex items-center gap-2">
-                <Image
-                  src="/assets/tema.png"
-                  alt="JIRA E-Commerce Marketing"
-                  height={200}
-                  width={200}
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src="/assets/tema.png"
+                alt="Engineering Logo"
+                height={120}
+                width={120}
+                className="object-contain mb-3"
+              />
               <p className="text-xs leading-relaxed opacity-90 font-lato">
                 We support engineering firms and industrial innovators in
-                translating complex ideas into compelling narratives. From
-                technical content to strategic campaigns, we help teams grow
-                with credibility, clarity, and long-term trust.
+                translating complex ideas into compelling narratives and
+                strategic campaigns.
               </p>
             </div>
           </div>
 
-          {/* Card 3 - Health Digital */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[400px] shadow-lg hover:shadow-xl transition-all">
+          {/* Card 3 */}
+          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all">
             <Image
               src="/assets/33.jpg"
-              alt="Health Digital Healthcare Marketing"
+              alt="Health Digital"
               fill
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <div className="mb-3 flex items-center gap-2">
-                <svg
-                  className="w-8 h-8"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                </svg>
-                <div className="text-xl font-bold font-lato">
-                  Health Digital
-                </div>
-              </div>
-              <p className="text-sm font-semibold mb-2 font-lato">
-                Healthcare Marketing Agency
-              </p>
+              <h3 className="text-xl font-bold font-lato mb-2">
+                Health Digital
+              </h3>
               <p className="text-xs leading-relaxed opacity-90 font-lato">
-                We partner with health-focused organizations to build ethical,
-                human-centered digital strategies. Whether you're navigating
-                patient education, growth, or advocacy, our approach centers on
-                equity, care, and culturally respectful communication.
+                Ethical, human-centered healthcare marketing focused on equity,
+                patient education, and culturally respectful communication.
               </p>
             </div>
           </div>
 
-          {/* Card 4 - ZeroFrame */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[400px] shadow-lg hover:shadow-xl transition-all md:col-span-1 lg:col-start-2">
+          {/* Card 4 */}
+          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all">
             <Image
               src="/assets/44.png"
-              alt="ZeroFrame Sales & Marketing Automation"
+              alt="ZeroFrame Automation"
               fill
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <div className="mb-3 flex items-center gap-2">
-                <svg
-                  className="w-8 h-8"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="2" />
-                  <path d="M7 2v20M17 2v20M2 12h20" />
-                </svg>
-                <div className="text-xl font-bold font-lato">ZeroFrame™</div>
-              </div>
-              <p className="text-sm font-semibold mb-2 font-lato">
-                Sales & Marketing Automation
-              </p>
+              <h3 className="text-xl font-bold font-lato mb-2">ZeroFrame™</h3>
               <p className="text-xs leading-relaxed opacity-90 font-lato">
-                ZeroFrame is an all-in-one sales and automation platform built
-                on Go High Level — tailored for all industries we serve. It
-                streamlines lead capture, email marketing, CRM, and client
-                workflows into one intentional system, helping you grow with
-                structure, clarity, and efficiency.
+                All-in-one sales and automation platform streamlining CRM, email
+                marketing, and workflow systems.
               </p>
             </div>
           </div>
 
-          {/* Card 5 - NUBAYIN */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[400px] shadow-lg hover:shadow-xl transition-all">
+          {/* Card 5 */}
+          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all">
             <Image
               src="/assets/55.jpg"
-              alt="NUBAYIN Storytelling Studio"
+              alt="NUBAYIN Studio"
               fill
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <div className="mb-3">
-                <Image
-                  src="/assets/nubayin.png"
-                  alt="JIRA E-Commerce Marketing"
-                  height={200}
-                  width={200}
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src="/assets/nubayin.png"
+                alt="NUBAYIN Logo"
+                height={120}
+                width={120}
+                className="object-contain mb-3"
+              />
               <p className="text-xs leading-relaxed opacity-90 font-lato">
-                NUBAYIN is a storytelling and entertainment studio creating
-                media rooted in spiritual imagination, cultural wisdom, and
-                liberated narratives. Through film, animation, and immersive
-                experiences, NUBAYIN challenges narratives, celebrates beauty,
-                and reclaims joy through a decolonial lens.
+                A storytelling studio creating spiritually rooted, culturally
+                rich, and imaginative media experiences.
               </p>
             </div>
           </div>
@@ -195,12 +154,47 @@ export function BarakahEcosystemSection() {
         <div className="text-center">
           <Button
             asChild
-            size="lg"
-            className="rounded-full px-8 h-12 text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-105 font-lato"
+            className="
+              bg-[#E76F3D]
+              text-white
+              font-bold
+              text-base sm:text-lg
+              rounded-[56px]
+              w-full sm:w-auto
+              px-[16px] sm:px-[20px]
+              py-[6px]
+              h-[48px] sm:h-[52px]
+          
+              inline-flex
+              items-center
+              justify-center
+              gap-[10px]
+          
+              shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+          
+              hover:bg-[#d46235]
+              transition-all
+            "
           >
-            <Link href="/ecosystem">
-              Explore The Barakah Ecosystem
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Link href="/barakah-experience">
+              Explore the Barakah Ecosystem
+              <div className="h-7 w-7 sm:h-8 sm:w-8 bg-white rounded-full flex items-center justify-center ">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.10744 9.99986H15.8926M15.8926 9.99986L10 4.1073M15.8926 9.99986L10 15.8924"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
             </Link>
           </Button>
         </div>
