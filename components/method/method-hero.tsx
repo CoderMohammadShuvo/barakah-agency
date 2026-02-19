@@ -61,7 +61,7 @@ export function MethodHero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-xl md:text-2xl font-medium text-[#381E11] mb-4"
+            className="text-2xl md:text-4xl font-medium text-[#3F1200] mb-4"
           >
             A Strategic Framework Rooted in Ethics, Built for Longevity
           </motion.p>
@@ -70,7 +70,7 @@ export function MethodHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-6xl md:text-7xl lg:text-8xl font-black text-[#381E11] leading-none mb-8 tracking-tighter font-lato"
+            className="text-6xl md:text-7xl lg:text-[160px] font-black text-[#3F1200] leading-none mb-8 tracking-tighter font-lato"
           >
             The Barakah Method
           </motion.h1>
@@ -79,7 +79,7 @@ export function MethodHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-[#5C4033] leading-relaxed mb-10 w-full"
+            className="text-2xl md:text-4xl text-[#5C4033] leading-relaxed mb-10 w-full"
           >
             The Barakah Method is our proprietary framework that sustains your
             values-aligned brand growth. It blends cultural insight, ethical
@@ -94,11 +94,85 @@ export function MethodHero() {
           >
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 bg-[#E76F3D] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#d46235] transition-all group"
+              className="
+    hidden sm:inline-flex items-center gap-3
+    bg-[#E76F3D]
+    text-black
+    hover:bg-[#d46235]
+    transition-all
+    rounded-[56px]
+    h-[52px]
+    pl-[20px]
+    pr-[6px]
+    py-[6px]
+    font-bold
+    shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+  "
             >
-              Grow With Barakah
-              <div className="bg-white rounded-full p-1 text-[#E76F3D] group-hover:translate-x-1 transition-transform">
-                <ArrowRight className="h-5 w-5" />
+              <span className="text-lg text-white">Grow with Barakah</span>
+
+              <div
+                className="
+                mt-1
+      h-10 w-10
+      flex items-center justify-center
+    "
+              >
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_d_557_995)">
+                    <circle cx="24" cy="20" r="20" fill="#F8FAFC" />
+                    <path
+                      d="M18.1074 19.9998H29.8926M29.8926 19.9998L24 14.1072M29.8926 19.9998L24 25.8924"
+                      stroke="black"
+                      stroke-width="1.66667"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_d_557_995"
+                      x="0"
+                      y="0"
+                      width="48"
+                      height="48"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="4" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite in2="hardAlpha" operator="out" />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_557_995"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_557_995"
+                        result="shape"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
               </div>
             </Link>
           </motion.div>

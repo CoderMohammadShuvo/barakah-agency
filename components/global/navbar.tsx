@@ -128,8 +128,8 @@ export function Navbar() {
                                       className={cn(
                                         "font-bold leading-none transition-colors",
                                         isEcosystem
-                                          ? "text-[#381E11] group-hover:text-white"
-                                          : "text-[#381E11]",
+                                          ? "text-[#3F1200] group-hover:text-white"
+                                          : "text-[#3F1200]",
                                       )}
                                     >
                                       {sub.name}
@@ -263,7 +263,7 @@ export function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden h-9 w-9 text-[#381E11]"
+              className="lg:hidden h-9 w-9 text-[#3F1200]"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
@@ -290,7 +290,7 @@ export function Navbar() {
                             openMobileSub === item.name ? null : item.name,
                           )
                         }
-                        className="w-full flex items-center justify-between px-4 py-3 text-base font-bold text-[#381E11] rounded-xl hover:bg-white transition-colors"
+                        className="w-full flex items-center justify-between px-4 py-3 text-base font-bold text-[#3F1200] rounded-xl hover:bg-white transition-colors"
                       >
                         {item.name}
                         <ChevronDown
@@ -315,7 +315,7 @@ export function Navbar() {
                                   <Icon className="h-4 w-4" />
                                 </div>
                                 <div>
-                                  <h5 className="font-bold text-[#381E11] text-sm">
+                                  <h5 className="font-bold text-[#3F1200] text-sm">
                                     {sub.name}
                                   </h5>
                                   <p className="text-xs text-[#5C4033] line-clamp-1">
@@ -336,7 +336,7 @@ export function Navbar() {
                         "px-4 py-3 text-base font-bold rounded-xl transition-colors block",
                         pathname === item.href
                           ? "text-[#E76F3D] bg-white"
-                          : "text-[#381E11] hover:bg-white",
+                          : "text-[#3F1200] hover:bg-white",
                       )}
                     >
                       {item.name}

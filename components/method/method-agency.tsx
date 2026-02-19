@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Button } from "../ui/button";
 
 export function MethodAgency() {
   return (
@@ -16,7 +17,7 @@ export function MethodAgency() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl font-medium text-[#381E11] mb-6"
+            className="text-2xl font-medium text-[#3F1200] mb-6"
           >
             Barakah-First
           </motion.p>
@@ -26,12 +27,12 @@ export function MethodAgency() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-[#381E11] leading-none mb-10 tracking-tighter font-lato"
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-[#3F1200] leading-none mb-10 tracking-tighter font-lato"
           >
             More Than an Agency
           </motion.h2>
 
-          <div className="space-y-8 text-lg md:text-xl text-[#381E11] leading-relaxed w-full">
+          <div className="space-y-8 text-lg md:text-xl text-[#3F1200] leading-relaxed w-full">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -99,15 +100,51 @@ export function MethodAgency() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <Link
-            href="/solutions"
-            className="inline-flex items-center gap-3 bg-[#00A8CC] text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-[#0096b8] transition-all group"
+          <Button
+            asChild
+            className="
+    bg-[#00A7C7]
+    text-white
+    font-bold
+    text-base sm:text-lg
+    rounded-[56px]
+    w-full sm:w-auto
+    px-[16px] sm:px-[20px]
+    py-[6px]
+    h-[48px] sm:h-[52px]
+
+    inline-flex
+    items-center
+    justify-center
+    gap-[10px]
+
+    shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+
+    hover:bg-[#d46235]
+    transition-all
+  "
           >
-            Explore Our Solutions
-            <div className="bg-white rounded-full p-1 text-[#00A8CC] group-hover:translate-x-1 transition-transform">
-              <ArrowRight className="h-5 w-5" />
-            </div>
-          </Link>
+            <Link href="/services">
+              Explore Our Solutions
+              <div className="h-7 w-7 sm:h-8 sm:w-8 bg-white rounded-full flex items-center justify-center ">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.10744 9.99986H15.8926M15.8926 9.99986L10 4.1073M15.8926 9.99986L10 15.8924"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </Link>
+          </Button>
         </motion.div>
       </div>
     </section>

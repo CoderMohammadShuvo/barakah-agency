@@ -60,6 +60,24 @@ const frameworkSteps = [
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
   },
+  {
+    number: "07",
+    title: "Growth",
+    subtitle: "Sustainable Growth That Returns ROI²™",
+    description:
+      "With your brand activated, we focus on scaling what works — optimizing campaigns, expanding reach, and building systems that generate consistent returns.",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    number: "08",
+    title: "Legacy",
+    subtitle: "Optimizing for Dual Returns",
+    description:
+      "We begin by listening deeply — to your goals, your gaps, and your guiding values. This clarity forms the foundation of an ROI²™ journey rooted in both strategy and sincerity.",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+  },
 ];
 
 export function MethodSteps() {
@@ -76,6 +94,11 @@ export function MethodSteps() {
     restDelta: 0.001,
   });
 
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+  });
+
   return (
     <section ref={containerRef} className="py-24 bg-white relative">
       <div className="container mx-auto px-4 lg:px-8">
@@ -85,7 +108,7 @@ export function MethodSteps() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-xs font-bold uppercase tracking-[0.2em] text-[#381E11]/40 mb-4 block"
+            className="text-lg font-normal  text-black mb-4 block"
           >
             • The Barakah Method •
           </motion.span>
@@ -94,7 +117,7 @@ export function MethodSteps() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-black text-[#381E11] font-lato leading-tight"
+            className="text-4xl md:text-5xl font-semibold text-[#3F1200] font-lato leading-tight"
           >
             A Values-Led Framework for Sustainable
             <br />
@@ -106,14 +129,32 @@ export function MethodSteps() {
         <div className="relative w-full mx-auto">
           {/* Vertical Progress Line */}
           <div className="absolute left-0 lg:left-8 top-0 bottom-0 w-[8px] bg-[#E76F3D]/20 rounded-full">
-            <motion.div
-              className="absolute top-0 left-0 w-full bg-[#381E11] origin-top rounded-full shadow-sm"
-              style={{ scaleY: pathLength }}
-            />
+            <svg
+              width="13"
+              height="3000"
+              viewBox="0 0 13 3000"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Background Track */}
+              <rect width="13" height="3000" rx="6.5" fill="#FFC3AA" />
+
+              {/* Animated Indicator */}
+              <motion.rect
+                width="13"
+                height="3000"
+                rx="6.5"
+                fill="#3F1200"
+                style={{
+                  scaleY: smoothProgress,
+                  transformOrigin: "top",
+                }}
+              />
+            </svg>
           </div>
 
           {/* Steps List */}
-          <div className="space-y-40 lg:pl-32 pl-12">
+          <div className="lg:pl-32 pl-12">
             {frameworkSteps.map((step, idx) => (
               <motion.div
                 key={step.number}
@@ -121,26 +162,25 @@ export function MethodSteps() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ margin: "-100px" }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-6 items-start border-b-2 py-10"
               >
                 {/* Content Area */}
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4 text-[#381E11]/60 font-medium">
+                <div className="flex space-y-6 gap-12">
+                  <div className="flex items-start gap-4 text-[#3F1200]/60 font-medium mt-[70px]">
                     <span className="text-lg">({step.number})</span>
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="text-4xl md:text-5xl font-black text-[#381E11]">
+                    <h3 className="text-4xl md:text-5xl font-black text-[#3F1200]">
                       {step.title}
                     </h3>
-                    <p className="text-2xl font-bold text-[#381E11]/80">
+                    <p className="text-2xl font-bold text-[#3F1200]/80">
                       {step.subtitle}
                     </p>
+                    <p className="text-lg text-[#5C4033] leading-relaxed max-w-xl">
+                      {step.description}
+                    </p>
                   </div>
-
-                  <p className="text-lg text-[#5C4033] leading-relaxed max-w-xl">
-                    {step.description}
-                  </p>
                 </div>
 
                 {/* Image Area */}
@@ -149,7 +189,7 @@ export function MethodSteps() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ margin: "-100px" }}
                   transition={{ duration: 0.8 }}
-                  className="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl"
+                  className="relative  h-[292px] rounded-[2rem] overflow-hidden shadow-2xl"
                 >
                   <Image
                     src={step.image}

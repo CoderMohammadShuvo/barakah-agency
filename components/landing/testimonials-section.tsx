@@ -155,7 +155,7 @@ export function TestimonialsSection() {
             >
               {/* Header with Company Name and Rating */}
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-[#381e11] font-lato">
+                <h3 className="text-xl font-bold text-[#3F1200] font-lato">
                   {testimonial.company}
                 </h3>
                 <div className="flex gap-1">
@@ -191,7 +191,7 @@ export function TestimonialsSection() {
                     .join("")}
                 </div>
                 <div>
-                  <div className="font-bold text-[#381e11] font-lato">
+                  <div className="font-bold text-[#3F1200] font-lato">
                     {testimonial.author}
                   </div>
                   <div className="text-sm text-[#5c4033] font-lato">

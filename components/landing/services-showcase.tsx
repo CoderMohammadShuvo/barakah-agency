@@ -40,7 +40,7 @@ export function ServicesShowcase() {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-14 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#381e11] mb-3 sm:mb-4 font-lato px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#3F1200] mb-3 sm:mb-4 font-lato px-4">
             Everything You Need to Build a<br />
             Brand That Lasts
           </h2>

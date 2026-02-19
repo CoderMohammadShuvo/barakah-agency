@@ -8,25 +8,25 @@ import { Button } from "@/components/ui/button";
 export function BarakahEcosystemSection() {
   return (
     <section className="relative py-20 md:py-32 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto">
         {/* Section Header */}
         <div className="text-center mb-4">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#381e11] mb-8 font-lato">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#3F1200] mb-8 font-lato">
             The Barakah Ecosystem
           </h2>
         </div>
 
         {/* Two-column intro */}
-        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 mb-16 w-full mx-auto">
-          <div>
-            <h3 className="text-2xl md:text-3xl font-bold text-[#381e11] font-lato">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 w-full px-14 mx-auto ">
+          <div className="col-span-1">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#3F1200] font-lato">
               Specialized Brands, Built
               <br />
               for Distinct Industries
             </h3>
           </div>
-          <div>
-            <p className="text-base text-[#5c4033] leading-relaxed font-lato">
+          <div className="col-span-2">
+            <p className="text-xl md:text-2xl text-[#5c4033] leading-relaxed font-lato">
               Each Barakah sub-brand is purpose-built to serve the needs,
               language, and realities of a specific industry. While every brand
               operates independently in its domain, all are grounded in the same

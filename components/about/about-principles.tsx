@@ -55,7 +55,7 @@ export function AboutPrinciples() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-xs font-bold uppercase tracking-[0.2em] text-[#381E11]/40 mb-4 block"
+            className="text-xs font-bold uppercase tracking-[0.2em] text-[#3F1200]/40 mb-4 block"
           >
             Our Responsibility
           </motion.span>
@@ -64,7 +64,7 @@ export function AboutPrinciples() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-black text-[#381E11] font-lato"
+            className="text-3xl md:text-5xl font-black text-[#3F1200] font-lato"
           >
             Five Principles That Guide
             <br />

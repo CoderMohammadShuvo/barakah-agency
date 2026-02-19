@@ -32,14 +32,18 @@ const attributionCards = [
 export function AttributionReporting() {
   return (
     <Section className="bg-white overflow-hidden pb-0 lg:pb-0">
-      <SectionHeader
-        title="First-Party Attribution Reporting"
-        description="This module uses 15,000+ lines of code and tracks how users interact across channels and touchpoints to show which campaigns, ads, and actions are actually driving conversions and revenue."
-      />
+      <h1 className="text-4xl text-center lg:text-7xl font-bold text-[#3D2012] hover:no-underline text-left py-4 focus:outline-none">
+        First-Party Attribution Reporting
+      </h1>
+      <p className="text-[#6B6B6B] text-lg leading-relaxed max-w-5xl mx-auto pt-0 pb-6 pr-4 text-center">
+        Refined through 200,000+ hours of strategy, execution, and optimization,
+        our method aligns ethical marketing, cultural intelligence, and
+        data-driven decision-making into one proven framework.
+      </p>
 
       <div className="relative max-w-7xl mx-auto mt-20">
         {/* Central Dome Visual */}
-        <div className="absolute left-1/2 top-[-10%] -translate-x-1/2 w-full max-w-3xl aspect-square pointer-events-none opacity-40">
+        <div className="absolute  top-[-24%]container max-w-3xl left-[25%] aspect-square pointer-events-none opacity-40">
           <svg
             width="637"
             height="637"
@@ -68,7 +72,7 @@ export function AttributionReporting() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 items-end">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 items-end mt-10">
           {/* Card 1 */}
           <div className="relative h-[350px] lg:h-[400px]">
             <div

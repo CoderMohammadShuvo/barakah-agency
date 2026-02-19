@@ -19,7 +19,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
           {/* Column 1: The Barakah System */}
           <div className="space-y-6">
-            <h3 className="text-4xl font-bold text-[#381e11] font-lato">
+            <h3 className="text-4xl font-bold text-[#3F1200] font-lato">
               The Barakah System
             </h3>
             <ul className="space-y-3">
@@ -61,7 +61,7 @@ export function Footer() {
 
           {/* Column 2: The Components */}
           <div className="space-y-6">
-            <h3 className="text-4xl font-bold text-[#381e11] font-lato">
+            <h3 className="text-4xl font-bold text-[#3F1200] font-lato">
               The Components
             </h3>
             <ul className="space-y-3">
@@ -84,7 +84,7 @@ export function Footer() {
 
           {/* Column 3: Resources */}
           <div className="space-y-6">
-            <h3 className="text-4xl font-bold text-[#381e11] font-lato">
+            <h3 className="text-4xl font-bold text-[#3F1200] font-lato">
               Resources
             </h3>
             <ul className="space-y-3">

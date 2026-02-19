@@ -54,7 +54,7 @@ export function MethodSolutions() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-2xl font-medium text-[#381E11] mb-4"
+                className="text-2xl md:text-4xl font-medium text-[#3F1200] mb-4"
               >
                 With Purpose and Precision
               </motion.p>
@@ -64,7 +64,7 @@ export function MethodSolutions() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-5xl md:text-7xl font-black text-[#381E11] leading-none mb-8 tracking-tighter font-lato"
+                className="text-5xl md:text-7xl font-black text-[#3F1200] leading-none mb-8 tracking-tighter font-lato"
               >
                 Marketing That Works
               </motion.h2>
@@ -74,14 +74,18 @@ export function MethodSolutions() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-lg text-[#5C4033] leading-relaxed max-w-xl"
+                className="text-lg text-[#5C4033] leading-relaxed w-full"
               >
                 Every marketing decision should do more than generate revenue.
                 It should build trust, deepen impact, and support long-term
-                growth. That's why our approach is rooted in responsibility.
+                growth. That’s why our approach is rooted in responsibility.
                 It's built to be deliberate, measurable, and aligned with
                 purpose. At Barakah Agency, we help mission-driven teams scale
-                sustainably by focusing on what matters most.
+                sustainably by focusing on what matters most. Whether
+                simplifying complexity or strengthening systems, we design
+                strategies that compound over time. Through the Barakah Method,
+                ROI²™ framework, and the Barakah Ecosystem, we work as true
+                partners — helping you grow with clarity, trust, and intention.
               </motion.p>
             </div>
 
@@ -91,7 +95,7 @@ export function MethodSolutions() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative aspect-[16/9] rounded-[2rem] overflow-hidden shadow-2xl"
+              className="relative aspect-[16/9] h-[228px] w-full rounded-[2rem] overflow-hidden shadow-2xl"
             >
               <Image
                 src="/assets/marketingthatwork.jpg"
@@ -109,12 +113,92 @@ export function MethodSolutions() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <Link
-                href="/solutions"
-                className="inline-flex items-center gap-3 bg-[#E76F3D] text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-[#d46235] transition-all group"
+                href="/services"
+                className="
+    hidden sm:inline-flex items-center gap-3
+    bg-[#E76F3D]
+    text-black
+    hover:bg-[#d46235]
+    transition-all
+    rounded-[56px]
+    h-[52px]
+    pl-[20px]
+    pr-[6px]
+    py-[6px]
+    font-bold
+    shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+  "
               >
-                Explore Our Solutions
-                <div className="bg-white rounded-full p-1 text-[#E76F3D] group-hover:translate-x-1 transition-transform">
-                  <ArrowRight className="h-5 w-5" />
+                <span className="text-lg text-white">
+                  {" "}
+                  Explore Our Solution
+                </span>
+
+                <div
+                  className="
+                mt-1
+      h-10 w-10
+      flex items-center justify-center
+    "
+                >
+                  <svg
+                    width="48"
+                    height="48"
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g filter="url(#filter0_d_557_995)">
+                      <circle cx="24" cy="20" r="20" fill="#F8FAFC" />
+                      <path
+                        d="M18.1074 19.9998H29.8926M29.8926 19.9998L24 14.1072M29.8926 19.9998L24 25.8924"
+                        stroke="black"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <filter
+                        id="filter0_d_557_995"
+                        x="0"
+                        y="0"
+                        width="48"
+                        height="48"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feColorMatrix
+                          in="SourceAlpha"
+                          type="matrix"
+                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha"
+                        />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix
+                          type="matrix"
+                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in2="BackgroundImageFix"
+                          result="effect1_dropShadow_557_995"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_dropShadow_557_995"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
+                  </svg>
                 </div>
               </Link>
             </motion.div>
@@ -122,7 +206,7 @@ export function MethodSolutions() {
 
           {/* Right Column: Accordion list */}
           <div className="lg:pt-20">
-            <div className="divide-y divide-[#381E11]/10 border-t border-[#381E11]/10">
+            <div className="divide-y divide-[#3F1200]/10 border-t border-[#3F1200]/10">
               {solutions.map((solution, idx) => {
                 const isOpen = openIndex === idx;
 
@@ -135,7 +219,7 @@ export function MethodSolutions() {
                       <span
                         className={cn(
                           "text-2xl md:text-3xl font-bold transition-all duration-300",
-                          isOpen ? "text-[#E76F3D]" : "text-[#381E11]",
+                          isOpen ? "text-[#E76F3D]" : "text-[#3F1200]",
                         )}
                       >
                         {solution.title}
@@ -145,7 +229,7 @@ export function MethodSolutions() {
                           "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 border",
                           isOpen
                             ? "bg-[#E76F3D] text-white border-[#E76F3D]"
-                            : "border-[#381E11]/20 text-[#381E11]",
+                            : "border-[#3F1200]/20 text-[#3F1200]",
                         )}
                       >
                         {isOpen ? (

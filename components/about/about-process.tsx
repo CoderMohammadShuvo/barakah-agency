@@ -253,7 +253,7 @@ export function AboutProcess() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-xs font-bold uppercase tracking-[0.2em] text-[#381E11]/40 mb-4 block"
+            className="text-xs font-bold uppercase tracking-[0.2em] text-[#3F1200]/40 mb-4 block"
           >
             // How We Work With You //
           </motion.span>
@@ -262,7 +262,7 @@ export function AboutProcess() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-black text-[#381E11] font-lato max-w-3xl mx-auto leading-tight"
+            className="text-4xl md:text-5xl font-black text-[#3F1200] font-lato max-w-3xl mx-auto leading-tight"
           >
             To Build Sustainable,
             <br />
@@ -337,7 +337,7 @@ export function AboutProcess() {
                           <span className="text-[#3F1200] font-bold text-sm tracking-widest uppercase mb-1">
                             // Step {step.id}
                           </span>
-                          <h3 className="text-3xl font-black text-[#381E11] leading-none">
+                          <h3 className="text-3xl font-black text-[#3F1200] leading-none">
                             {step.title}
                           </h3>
                           <p className="text-[#5C4033] text-lg leading-relaxed">

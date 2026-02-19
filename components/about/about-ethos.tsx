@@ -57,7 +57,7 @@ export function AboutEthos() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-black text-[#381E11] mb-6 font-lato"
+            className="text-4xl md:text-5xl font-black text-[#3F1200] mb-6 font-lato"
           >
             Built on Trust. Focused on Legacy.
           </motion.h2>
@@ -150,7 +150,7 @@ export function AboutEthos() {
                   "absolute z-30 w-[22%] aspect-square rounded-full cursor-pointer flex items-center justify-center p-4 text-center transition-all duration-300 border-2 border-transparent",
                   hoveredId === item.id
                     ? "bg-[#E76F3D] text-white scale-110 shadow-lg shadow-[#E76F3D]/40"
-                    : "bg-[#FBD3C1] text-[#381E11] hover:bg-[#FBD3C1]/80",
+                    : "bg-[#FBD3C1] text-[#3F1200] hover:bg-[#FBD3C1]/80",
                 )}
                 style={{
                   left: `${x}%`,

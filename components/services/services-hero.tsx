@@ -9,15 +9,13 @@ import React from "react";
 
 export function ServicesHero() {
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-[#FFFCF9] pt-28 pb-20">
+    <section className="relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden bg-[#FFFCF9] pt-28 pb-20">
       {/* Background Glows */}
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(228,111,61,0.08)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(30,144,255,0.05)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
           {/* Left Content */}
-          <div className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
+          <div className="col-span-1 text-center lg:text-left mx-auto lg:mx-0">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -63,14 +61,10 @@ export function ServicesHero() {
           </div>
 
           {/* Right Visual Element - Auto Slider */}
-          <div className="relative h-[500px] sm:h-[600px] lg:h-[800px] w-full flex items-center justify-center lg:justify-end mt-12 lg:mt-0 overflow-hidden">
-            <div className="relative w-full max-w-[650px] h-full flex gap-4 sm:gap-6 justify-center lg:justify-end scale-90 sm:scale-100 pb-20">
-              {/* Fade Gradients */}
-              <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFCF9] to-transparent z-40" />
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FFFCF9] to-transparent z-40" />
-
+          <div className="relative h-[500px] lg:h-[800px] w-full flex items-center justify-center lg:justify-end mt-12 lg:mt-0 overflow-hidden">
+            <div className="relative  w-full max-w-[650px] h-full flex gap-8 sm:gap-6 justify-center lg:justify-end scale-90 sm:scale-100 pb-20">
               {/* Column 1: Slow Up */}
-              <div className="flex-1 max-w-[200px] relative">
+              <div className="w-full pt-[100px] relative">
                 <MarqueeColumn
                   speed={60}
                   images={[
@@ -79,36 +73,6 @@ export function ServicesHero() {
                     "/assets/3.png",
                     "/assets/be1.jpg",
                     "/assets/i1.png",
-                  ]}
-                />
-              </div>
-
-              {/* Column 2: Faster Down (Featured) */}
-              <div className="flex-1 max-w-[240px] relative pt-12">
-                <MarqueeColumn
-                  speed={45}
-                  reverse
-                  images={[
-                    "/assets/be2.jpg",
-                    "/assets/4.png",
-                    "/assets/5.png",
-                    "/assets/a1.png",
-                    "/assets/i2.png",
-                  ]}
-                  featured
-                />
-              </div>
-
-              {/* Column 3: Medium Up */}
-              <div className="flex-1 max-w-[200px] relative pt-24">
-                <MarqueeColumn
-                  speed={55}
-                  images={[
-                    "/assets/a2.png",
-                    "/assets/a3.png",
-                    "/assets/be3.jpg",
-                    "/assets/a4.png",
-                    "/assets/i4.png",
                   ]}
                 />
               </div>
@@ -158,14 +122,14 @@ function MarqueeColumn({
   const displayImages = [...images, ...images];
 
   return (
-    <div className="relative h-full overflow-hidden rounded-[32px] sm:rounded-[48px]">
+    <div className="relative w-full overflow-hidden ">
       <motion.div
-        className="flex flex-col gap-4 sm:gap-6"
+        className="flex gap-16 sm:gap-6 w-max"
         animate={{
-          y: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
+          x: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
         }}
         transition={{
-          y: {
+          x: {
             repeat: Infinity,
             repeatType: "loop",
             duration: speed,
@@ -176,7 +140,7 @@ function MarqueeColumn({
         {displayImages.map((src, i) => (
           <div
             key={i}
-            className={`relative w-full aspect-[2/3.2] rounded-[24px] sm:rounded-[40px] overflow-hidden shadow-2xl border border-white/10 group ${
+            className={`relative w-[487px] h-[652px] rounded-sm overflow-hidden shadow-2xl group ${
               featured ? "scale-105 z-10" : "scale-100 opacity-80"
             }`}
           >
@@ -184,12 +148,10 @@ function MarqueeColumn({
               src={src}
               alt="Case study"
               fill
+              sizes="300px"
               className="object-cover transition-transform duration-700 group-hover:scale-110"
-              sizes="(max-width: 768px) 150px, 250px"
               priority={i < 3}
             />
-            {/* Glossy Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 opacity-60 pointer-events-none" />
           </div>
         ))}
       </motion.div>

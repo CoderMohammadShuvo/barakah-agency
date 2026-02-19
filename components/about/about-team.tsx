@@ -60,7 +60,7 @@ export function AboutTeam() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-xs font-bold uppercase tracking-[0.2em] text-[#381E11]/40 mb-4 block"
+            className="text-xs font-bold uppercase tracking-[0.2em] text-[#3F1200]/40 mb-4 block"
           >
             • Meet The Team •
           </motion.span>
@@ -69,7 +69,7 @@ export function AboutTeam() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-black text-[#381E11] font-lato mb-6 leading-tight"
+            className="text-4xl md:text-5xl font-black text-[#3F1200] font-lato mb-6 leading-tight"
           >
             The People Behind the Work
             <br />& the Agents of Barakah

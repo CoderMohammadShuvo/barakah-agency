@@ -66,10 +66,10 @@ export function ProofOfPerformanceSection() {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-4">
-          <p className="text-sm font-semibold text-[#381e11] mb-2 font-lato">
+          <p className="text-sm font-semibold text-[#3F1200] mb-2 font-lato">
             • Our Works •
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#381e11] mb-16 font-lato">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#3F1200] mb-16 font-lato">
             Stories of Purposeful Growth
           </h2>
         </div>
@@ -87,7 +87,7 @@ export function ProofOfPerformanceSection() {
                 {/* Left Column - Info */}
                 <div className=" pr-10 flex flex-col justify-center relative z-10 ">
                   <div className="w-full">
-                    <h3 className="text-3xl font-bold text-[#381e11] mb-6 font-lato">
+                    <h3 className="text-3xl font-bold text-[#3F1200] mb-6 font-lato">
                       {study.title}
                     </h3>
 
@@ -106,7 +106,7 @@ export function ProofOfPerformanceSection() {
                       {study.tags.map((tag, idx) => (
                         <span
                           key={idx}
-                          className="px-4 py-1.5 border border-[#381e11]/20 rounded-full text-[10px] uppercase tracking-wider font-bold text-[#381e11] font-lato"
+                          className="px-4 py-1.5 border border-[#3F1200]/20 rounded-full text-[10px] uppercase tracking-wider font-bold text-[#3F1200] font-lato"
                         >
                           {tag}
                         </span>
@@ -131,7 +131,7 @@ export function ProofOfPerformanceSection() {
                         <div className="flex gap-10 mb-8 p-6  rounded-2xl">
                           {study.metrics.map((metric, idx) => (
                             <div key={idx}>
-                              <div className="text-[84px] font-bold italic text-[#381e11] font-lato">
+                              <div className="text-[84px] font-bold italic text-[#3F1200] font-lato">
                                 {metric.value}
                               </div>
                               <div className="text-[10px] uppercase  tracking-widest text-[#5c4033] font-lato font-bold mt-1">
@@ -147,7 +147,7 @@ export function ProofOfPerformanceSection() {
                           {study.tags.map((tag, idx) => (
                             <span
                               key={idx}
-                              className="px-3 py-1 bg-[#381e11] rounded-full text-[10px] font-bold text-white font-lato uppercase tracking-tighter"
+                              className="px-3 py-1 bg-[#3F1200] rounded-full text-[10px] font-bold text-white font-lato uppercase tracking-tighter"
                             >
                               {tag}
                             </span>

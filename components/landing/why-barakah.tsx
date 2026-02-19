@@ -15,7 +15,7 @@ export function WhyBarakah() {
           {/* Left Column - "WHY BARAKAH" with Tooltip */}
           <div className="lg:col-span-3 relative">
             <h2
-              className="text-2xl md:text-3xl font-bold text-[#381e11] tracking-tight font-lato uppercase cursor-pointer relative inline-block"
+              className="text-2xl md:text-3xl font-bold text-[#3F1200] tracking-tight font-lato uppercase cursor-pointer relative inline-block"
               onMouseEnter={() => setShowTooltip(true)}
               onMouseLeave={() => setShowTooltip(false)}
             >
@@ -25,13 +25,13 @@ export function WhyBarakah() {
             {/* Tooltip */}
             {showTooltip && (
               <div className="absolute top-full left-0 mt-4 w-80 bg-white border border-[#e5e5e5] rounded-lg shadow-xl p-6 z-50 animate-fade-in">
-                <h3 className="text-xl font-bold text-[#381e11] mb-2 font-lato">
+                <h3 className="text-xl font-bold text-[#3F1200] mb-2 font-lato">
                   Barakah
                 </h3>
                 <p className="text-sm text-[#5c4033] mb-3 font-lato">
                   [bar·a·kah] — بركة
                 </p>
-                <p className="text-[15px] text-[#381e11] leading-relaxed font-lato">
+                <p className="text-[15px] text-[#3F1200] leading-relaxed font-lato">
                   <span className="font-semibold">A blessing.</span> A force of
                   goodness. Where a little goes far. Where meaning outweighs
                   metrics.{" "}
@@ -45,7 +45,7 @@ export function WhyBarakah() {
             <h3
               className="
     font-lato
-    text-[#381e11]
+    text-[#3F1200]
     font-normal
     text-[64px]
     leading-[84px]
@@ -69,7 +69,7 @@ export function WhyBarakah() {
       text-[56px]
       leading-[84px]
       tracking-[-0.03em]
-      text-[#381e11]
+      text-[#3F1200]
     "
               >
                 Return on Investment × Return on Impact
@@ -81,7 +81,7 @@ export function WhyBarakah() {
       text-[56px]
       leading-[84px]
       tracking-[-0.03em]
-      text-[#381e11]
+      text-[#3F1200]
     "
               >
                 That's What We Call

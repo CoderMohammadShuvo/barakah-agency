@@ -1,132 +1,185 @@
-"use client"
+"use client";
 
-import React from "react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export function MethodLegacy() {
-    return (
-        <section className="py-24 bg-white overflow-hidden">
-            <div className="container mx-auto px-4 lg:px-8">
+  return (
+    <section className="py-24 bg-white overflow-hidden">
+      <div className="container mx-auto px-4 lg:px-8">
+        {/* Header Section */}
+        <div className="w-full mb-16">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-4xl font-medium text-[#3F1200] mb-4"
+          >
+            Return on Investment. Return on Impact.
+          </motion.p>
 
-                {/* Header Section */}
-                <div className="max-w-5xl mb-16">
-                    <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-2xl font-medium text-[#381E11] mb-4"
-                    >
-                        Return on Investment. Return on Impact.
-                    </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-5xl md:text-7xl font-black text-[#3F1200] leading-[1.1] mb-10 tracking-tighter font-lato"
+          >
+            It's How We Build Your Brand's Legacy
+          </motion.h2>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-5xl md:text-7xl font-black text-[#381E11] leading-[1.1] mb-10 tracking-tighter font-lato"
-                    >
-                        It's How We Build<br />Your Brand's Legacy
-                    </motion.h2>
+          <div className="w-full text-xl text-[#5C4033] leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              At Barakah Agency, growth isn't just about what you achieve today,
+              but what continues to grow tomorrow. ROI²™ represents our belief
+              that every marketing decision carries responsibility. Yes, it
+              should convert; but it should also reflect your values, signal
+              clarity, and earn lasting trust. When done right, strategy
+              compounds: trust deepens, loyalty grows, revenue increases, and
+              brands evolve into legacies.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-4"
+            >
+              When performance is guided by purpose, revenue becomes sustainable
+              rather than fragile. Customers stay longer, advocacy grows
+              stronger, and trust deepens over time. The result is not just
+              momentum, but durability.
+            </motion.p>
+          </div>
+        </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg text-[#5C4033] leading-relaxed">
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                        >
-                            At Barakah Agency, growth isn't just about what you achieve today, but what continues to grow tomorrow.
-                            ROI²™ represents our belief that every marketing decision carries responsibility. Yes, it should convert;
-                            but it should also reflect your values, signal clarity, and earn lasting trust. When done right,
-                            strategy compounds: trust deepens, loyalty grows, revenue increases, and brands evolve into legacies.
-                        </motion.p>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                        >
-                            When performance is guided by purpose, revenue becomes sustainable rather than fragile.
-                            Customers stay longer, advocacy grows stronger, and trust deepens over time.
-                            The result is not just momentum, but durability.
-                        </motion.p>
-                    </div>
-                </div>
-
-                {/* Visual Showcase (Animated Diamond) */}
-                <div className="max-w-6xl mx-auto mb-12">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="relative rounded-[2.5rem] overflow-hidden bg-black aspect-video shadow-2xl flex items-center justify-center p-12"
-                    >
-                        {/* Animated Diamond Shape */}
-                        <div className="relative w-[30%] lg:w-[25%] aspect-square">
-                            <svg viewBox="0 0 400 400" className="w-full h-full">
-                                <defs>
-                                    <pattern id="lines-legacy" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
-                                        <line x1="0" y1="2" x2="4" y2="2" stroke="#000" strokeWidth="2" opacity="0.3" />
-                                    </pattern>
-                                    <linearGradient id="diamondGradient-legacy" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stopColor="#f59e5f" />
-                                        <stop offset="100%" stopColor="#f7a96a" />
-                                    </linearGradient>
-                                </defs>
-
-                                {/* Rotating diamond */}
-                                <motion.g
-                                    animate={{ rotate: 360 }}
-                                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                    style={{ transformOrigin: '200px 200px' }}
-                                >
-                                    <path
-                                        d="M 200 50 L 350 200 L 200 350 L 50 200 Z"
-                                        fill="url(#diamondGradient-legacy)"
-                                        stroke="none"
-                                    />
-                                    <path
-                                        d="M 200 50 L 350 200 L 200 350 L 50 200 Z"
-                                        fill="url(#lines-legacy)"
-                                        stroke="none"
-                                    />
-                                </motion.g>
-                            </svg>
-                        </div>
-
-                        {/* Text Overlay */}
-                        <div className="absolute bottom-12 left-12">
-                            <div className="bg-[#E76F3D] text-white px-6 py-2 rounded-lg font-bold text-xl">
-                                What if performance
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-
-                {/* CTA Button */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    className="flex justify-start"
-                >
-                    <Link
-                        href="/barakah-ecosystem"
-                        className="inline-flex items-center gap-3 bg-[#E76F3D] text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-[#d46235] transition-all group"
-                    >
-                        Explore The Barakah Ecosystem
-                        <div className="bg-white rounded-full p-1 text-[#E76F3D] group-hover:translate-x-1 transition-transform">
-                            <ArrowRight className="h-5 w-5" />
-                        </div>
-                    </Link>
-                </motion.div>
-
+        {/* Visual Showcase (Animated Diamond) */}
+        <div className="container mx-auto mb-12">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative rounded-[2.5rem] overflow-hidden bg-black aspect-video shadow-2xl flex items-center justify-center p-12"
+          >
+            {/* Animated Diamond Shape */}
+            <div className=" mx-auto">
+              <Image
+                src="/assets/whatif.png"
+                alt="Video Thumbnail"
+                fill
+                className="object-cover mx-auto rounded-2xl"
+              />
             </div>
-        </section>
-    )
+
+            {/* Text Overlay */}
+          </motion.div>
+        </div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex justify-start"
+        >
+          <Link
+            href="/barakah-ecosystem"
+            className="
+    hidden sm:inline-flex items-center gap-3
+    bg-[#E76F3D]
+    text-black
+    hover:bg-[#d46235]
+    transition-all
+    rounded-[56px]
+    h-[52px]
+    pl-[20px]
+    pr-[6px]
+    py-[6px]
+    font-bold
+    shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]
+  "
+          >
+            <span className="text-lg text-white">
+              {" "}
+              Explore The Barakah Ecosystem
+            </span>
+
+            <div
+              className="
+                mt-1
+      h-10 w-10
+      flex items-center justify-center
+    "
+            >
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g filter="url(#filter0_d_557_995)">
+                  <circle cx="24" cy="20" r="20" fill="#F8FAFC" />
+                  <path
+                    d="M18.1074 19.9998H29.8926M29.8926 19.9998L24 14.1072M29.8926 19.9998L24 25.8924"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter0_d_557_995"
+                    x="0"
+                    y="0"
+                    width="48"
+                    height="48"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
+                    />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_557_995"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_557_995"
+                      result="shape"
+                    />
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
 }

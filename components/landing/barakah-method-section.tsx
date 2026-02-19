@@ -12,11 +12,11 @@ export function BarakahMethodSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full lg:gap-16 items-center">
           {/* Left Column - Content */}
           <div className="space-y-6 max-w-7xl  mx-auto">
-            <p className="text-base text-4xl font-semibold text-[#381e11] font-lato">
+            <p className="text-base text-4xl font-semibold text-[#3F1200] font-lato">
               The Barakah Method
             </p>
 
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-[#381e11] leading-tight font-lato">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-[#3F1200] leading-tight font-lato">
               Growth Becomes Sustainable When Values Guide the System
             </h2>
 

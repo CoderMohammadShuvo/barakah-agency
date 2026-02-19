@@ -31,12 +31,12 @@ export function ImpactSlider() {
   return (
     <section className="py-20 bg-none overflow-hidden">
       <div className="container mx-auto px-4 mb-12">
-        <div className="border-t border-[#381E11]/10 pt-8">
+        <div className="border-t border-[#3F1200]/10 pt-8">
           <motion.h3
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-3xl font-medium text-[#381E11]"
+            className="text-2xl md:text-3xl font-medium text-[#3F1200]"
           >
             Brand Impact, Powered by the Barakah Method and Mesghali Studio
           </motion.h3>

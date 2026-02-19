@@ -1,11 +1,11 @@
-import React from "react"
-import { cn } from "@/lib/utils"
+import React from "react";
+import { cn } from "@/lib/utils";
 
 interface SectionProps {
-  children: React.ReactNode
-  className?: string
-  containerClassName?: string
-  id?: string
+  children: React.ReactNode;
+  className?: string;
+  containerClassName?: string;
+  id?: string;
 }
 
 export function Section({
@@ -20,15 +20,15 @@ export function Section({
         {children}
       </div>
     </section>
-  )
+  );
 }
 
 interface SectionHeaderProps {
-  title: string
-  subtitle?: string
-  description?: string
-  align?: "left" | "center"
-  className?: string
+  title: string;
+  subtitle?: string;
+  description?: string;
+  align?: "left" | "center";
+  className?: string;
 }
 
 export function SectionHeader({
@@ -42,8 +42,8 @@ export function SectionHeader({
     <div
       className={cn(
         "mb-12 lg:mb-16",
-        align === "center" && "text-center max-w-3xl mx-auto",
-        className
+        align === "center" && "text-center max-w-3xl mx-auto font-lato",
+        className,
       )}
     >
       {subtitle && (
@@ -60,5 +60,5 @@ export function SectionHeader({
         </p>
       )}
     </div>
-  )
+  );
 }

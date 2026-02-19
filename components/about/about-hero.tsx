@@ -38,7 +38,7 @@ export function AboutHero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-block text-lg md:text-xl font-medium text-[#381E11] tracking-tight"
+            className="inline-block text-lg md:text-xl font-medium text-[#3F1200] tracking-tight"
           >
             Growth with Integrity.
           </motion.span>

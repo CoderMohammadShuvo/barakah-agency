@@ -8,7 +8,7 @@ export function VideoShowcaseSection() {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#381e11] mb-4 font-lato">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#3F1200] mb-4 font-lato">
             Grow Your Business, Build Your Legacy.
           </h2>
           <p className="text-lg text-[#5c4033] max-w-3xl mx-auto font-lato">

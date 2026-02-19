@@ -50,13 +50,11 @@ export function BarakahExperienceIndustries() {
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
             <div className="space-y-4">
-              <span className="text-lg font-bold text-[#381E11]">
+              <span className="text-2xl md:text-4xl font-medium text-[#3F1200]">
                 Industries Barakah Serves
               </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#381E11] font-lato tracking-tight">
-                Built for Focused,
-                <br />
-                High-Trust Sectors
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#3F1200] font-lato tracking-wide">
+                Built for Focused, High-Trust Sectors
               </h2>
             </div>
 
