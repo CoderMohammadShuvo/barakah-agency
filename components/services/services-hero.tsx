@@ -10,17 +10,30 @@ import React from "react";
 export function ServicesHero() {
   return (
     <section className="relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden bg-[#FFFCF9] pt-28 pb-20">
-      {/* Background Glows */}
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 select-none">
+        <Image
+          src="/assets/hero-bg.png"
+          alt="Background"
+          fill
+          className="object-fit object-top opacity-40 mix-blend-multiply"
+          priority
+          quality={100}
+        />
+      </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
-          {/* Left Content */}
-          <div className="col-span-1 text-center lg:text-left mx-auto lg:mx-0">
+      {/* Soft Overlay to blend if needed */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#FFFCF9]/80 z-0 pointer-events-none" />
+
+      <div className="w-full mx-auto px-4 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
+          {/* Left Content - 40% */}
+          <div className="w-full lg:w-[40%] text-center lg:text-left">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl sm:text-6xl lg:text-[100px] font-bold text-[#3D1A10] leading-[1.1] mb-6 lg:mb-8 tracking-[-0.03em] text-balance"
+              className="text-4xl sm:text-6xl lg:text-[84px] font-bold text-[#3D1A10] leading-[1.1] mb-6 lg:mb-8 tracking-[-0.03em] text-balance"
             >
               Services for a <br className="hidden lg:block" />
               <span className="text-[#3D1A10]">New Economy.</span>
@@ -60,42 +73,23 @@ export function ServicesHero() {
             </motion.div>
           </div>
 
-          {/* Right Visual Element - Auto Slider */}
-          <div className="relative h-[500px] lg:h-[800px] w-full flex items-center justify-center lg:justify-end mt-12 lg:mt-0 overflow-hidden">
-            <div className="relative  w-full max-w-[650px] h-full flex gap-8 sm:gap-6 justify-center lg:justify-end scale-90 sm:scale-100 pb-20">
-              {/* Column 1: Slow Up */}
-              <div className="w-full pt-[100px] relative">
-                <MarqueeColumn
-                  speed={60}
-                  images={[
-                    "/assets/1.png",
-                    "/assets/2.png",
-                    "/assets/3.png",
-                    "/assets/be1.jpg",
-                    "/assets/i1.png",
-                  ]}
-                />
-              </div>
+          {/* Right Visual Element - 60% */}
+          <div className="w-full lg:w-[60%] relative h-[400px] lg:h-[600px] flex items-center justify-center overflow-hidden">
+            {/* White side gradients */}
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#FFFCF9] to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#FFFCF9] to-transparent z-10 pointer-events-none" />
 
-              {/* Decorative Lines (connecting columns subtlely) */}
-              <div className="absolute inset-0 pointer-events-none z-20">
-                <svg
-                  className="w-full h-full opacity-10"
-                  viewBox="0 0 500 800"
-                  fill="none"
-                >
-                  <path
-                    d="M100 200 Q 250 400 400 200"
-                    stroke="#E76F3D"
-                    strokeWidth="1"
-                  />
-                  <path
-                    d="M150 500 Q 300 300 450 500"
-                    stroke="#E76F3D"
-                    strokeWidth="1"
-                  />
-                </svg>
-              </div>
+            <div className="w-full">
+              <MarqueeColumn
+                speed={40}
+                images={[
+                  "/assets/1.png",
+                  "/assets/2.png",
+                  "/assets/3.png",
+                  "/assets/be1.jpg",
+                  "/assets/i1.png",
+                ]}
+              />
             </div>
           </div>
         </div>
@@ -109,22 +103,16 @@ interface MarqueeColumnProps {
   images: string[];
   speed: number;
   reverse?: boolean;
-  featured?: boolean;
 }
 
-function MarqueeColumn({
-  images,
-  speed,
-  reverse = false,
-  featured = false,
-}: MarqueeColumnProps) {
+function MarqueeColumn({ images, speed, reverse = false }: MarqueeColumnProps) {
   // Duplicate images for infinite loop
   const displayImages = [...images, ...images];
 
   return (
-    <div className="relative w-full overflow-hidden ">
+    <div className="relative w-full overflow-hidden">
       <motion.div
-        className="flex gap-16 sm:gap-6 w-max"
+        className="flex gap-10 sm:gap-12"
         animate={{
           x: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
         }}
@@ -132,7 +120,7 @@ function MarqueeColumn({
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: speed,
+            duration: speed * 2,
             ease: "linear",
           },
         }}
@@ -140,15 +128,13 @@ function MarqueeColumn({
         {displayImages.map((src, i) => (
           <div
             key={i}
-            className={`relative w-[487px] h-[652px] rounded-sm overflow-hidden shadow-2xl group ${
-              featured ? "scale-105 z-10" : "scale-100 opacity-80"
-            }`}
+            className="flex-shrink-0 relative w-[250px] sm:w-[320px] md:w-[400px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl group border-4 border-white/50"
           >
             <Image
               src={src}
               alt="Case study"
               fill
-              sizes="300px"
+              sizes="(max-width: 768px) 320px, 450px"
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               priority={i < 3}
             />

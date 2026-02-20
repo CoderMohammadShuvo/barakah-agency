@@ -10,6 +10,34 @@ import {
   type BlogFormData,
   type CaseStudyFormData,
 } from "@/lib/validations"
+import { cookies } from "next/headers"
+
+// Helper to check if the current user is an authorized admin
+async function isAdminAuthorized() {
+  const supabase = await createClient()
+  
+  // 1. Check Supabase session
+  const { data: { user } } = await supabase.auth.getUser()
+  if (user?.user_metadata?.is_admin) {
+    return { authorized: true, user }
+  }
+
+  // 2. Check hardcoded admin cookie
+  const cookieStore = await cookies()
+  const isAdminAuth = (await cookieStore).get("admin_auth")?.value === "true"
+  
+  if (isAdminAuth) {
+    return { 
+      authorized: true, 
+      user: { 
+        id: "hardcoded-admin", 
+        email: "admin@barakahagency.com" 
+      } 
+    }
+  }
+
+  return { authorized: false, user: null }
+}
 
 // Contact form submission
 export async function submitContactForm(data: ContactFormData) {
@@ -44,13 +72,12 @@ export async function createBlog(data: BlogFormData) {
     return { success: false, error: validated.error.flatten().fieldErrors }
   }
 
-  const supabase = await createClient()
-  
-  // Check admin access
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) {
+  const { authorized, user } = await isAdminAuthorized()
+  if (!authorized || !user) {
     return { success: false, error: "Unauthorized" }
   }
+
+  const supabase = await createClient()
 
   const tags = validated.data.tags 
     ? validated.data.tags.split(",").map(t => t.trim()).filter(Boolean)
@@ -67,12 +94,12 @@ export async function createBlog(data: BlogFormData) {
     published: validated.data.published,
     meta_title: validated.data.meta_title || null,
     meta_description: validated.data.meta_description || null,
-    author_id: user.id,
+    author_name: validated.data.author_name || null,
   })
 
   if (error) {
     console.error("Error creating blog:", error)
-    return { success: false, error: "Failed to create blog. Please try again." }
+    return { success: false, error }
   }
 
   revalidatePath("/blog", "page")
@@ -86,12 +113,12 @@ export async function updateBlog(id: string, data: BlogFormData) {
     return { success: false, error: validated.error.flatten().fieldErrors }
   }
 
-  const supabase = await createClient()
-  
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) {
+  const { authorized } = await isAdminAuthorized()
+  if (!authorized) {
     return { success: false, error: "Unauthorized" }
   }
+
+  const supabase = await createClient()
 
   const tags = validated.data.tags 
     ? validated.data.tags.split(",").map(t => t.trim()).filter(Boolean)
@@ -110,13 +137,14 @@ export async function updateBlog(id: string, data: BlogFormData) {
       published: validated.data.published,
       meta_title: validated.data.meta_title || null,
       meta_description: validated.data.meta_description || null,
+      author_name: validated.data.author_name || null,
       updated_at: new Date().toISOString(),
     })
     .eq("id", id)
 
   if (error) {
     console.error("Error updating blog:", error)
-    return { success: false, error: "Failed to update blog. Please try again." }
+    return { success: false, error }
   }
 
   revalidatePath("/blog", "page")
@@ -126,18 +154,18 @@ export async function updateBlog(id: string, data: BlogFormData) {
 }
 
 export async function deleteBlog(id: string) {
-  const supabase = await createClient()
-  
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) {
+  const { authorized } = await isAdminAuthorized()
+  if (!authorized) {
     return { success: false, error: "Unauthorized" }
   }
 
+  const supabase = await createClient()
+  
   const { error } = await supabase.from("blogs").delete().eq("id", id)
 
   if (error) {
     console.error("Error deleting blog:", error)
-    return { success: false, error: "Failed to delete blog." }
+    return { success: false, error }
   }
 
   revalidatePath("/blog", "page")
@@ -152,13 +180,13 @@ export async function createCaseStudy(data: CaseStudyFormData) {
     return { success: false, error: validated.error.flatten().fieldErrors }
   }
 
-  const supabase = await createClient()
-  
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) {
+  const { authorized } = await isAdminAuthorized()
+  if (!authorized) {
     return { success: false, error: "Unauthorized" }
   }
 
+  const supabase = await createClient()
+  
   const metrics = validated.data.metrics 
     ? JSON.parse(validated.data.metrics)
     : null
@@ -182,7 +210,7 @@ export async function createCaseStudy(data: CaseStudyFormData) {
 
   if (error) {
     console.error("Error creating case study:", error)
-    return { success: false, error: "Failed to create case study." }
+    return { success: false, error }
   }
 
   revalidatePath("/case-studies", "page")
@@ -196,13 +224,13 @@ export async function updateCaseStudy(id: string, data: CaseStudyFormData) {
     return { success: false, error: validated.error.flatten().fieldErrors }
   }
 
-  const supabase = await createClient()
-  
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) {
+  const { authorized } = await isAdminAuthorized()
+  if (!authorized) {
     return { success: false, error: "Unauthorized" }
   }
 
+  const supabase = await createClient()
+  
   const metrics = validated.data.metrics 
     ? JSON.parse(validated.data.metrics)
     : null
@@ -230,7 +258,7 @@ export async function updateCaseStudy(id: string, data: CaseStudyFormData) {
 
   if (error) {
     console.error("Error updating case study:", error)
-    return { success: false, error: "Failed to update case study." }
+    return { success: false, error }
   }
 
   revalidatePath("/case-studies", "page")
@@ -240,18 +268,18 @@ export async function updateCaseStudy(id: string, data: CaseStudyFormData) {
 }
 
 export async function deleteCaseStudy(id: string) {
-  const supabase = await createClient()
-  
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) {
+  const { authorized } = await isAdminAuthorized()
+  if (!authorized) {
     return { success: false, error: "Unauthorized" }
   }
 
+  const supabase = await createClient()
+  
   const { error } = await supabase.from("case_studies").delete().eq("id", id)
 
   if (error) {
     console.error("Error deleting case study:", error)
-    return { success: false, error: "Failed to delete case study." }
+    return { success: false, error }
   }
 
   revalidatePath("/case-studies", "page")
@@ -261,13 +289,13 @@ export async function deleteCaseStudy(id: string) {
 
 // Update lead status
 export async function updateLeadStatus(id: string, status: string) {
-  const supabase = await createClient()
-  
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) {
+  const { authorized } = await isAdminAuthorized()
+  if (!authorized) {
     return { success: false, error: "Unauthorized" }
   }
 
+  const supabase = await createClient()
+  
   const { error } = await supabase
     .from("contact_leads")
     .update({ status })
@@ -275,7 +303,7 @@ export async function updateLeadStatus(id: string, status: string) {
 
   if (error) {
     console.error("Error updating lead status:", error)
-    return { success: false, error: "Failed to update status." }
+    return { success: false, error }
   }
 
   revalidatePath("/admin/leads", "page")

@@ -38,7 +38,7 @@ export function BarakahEcosystemSection() {
         {/* Brand Cards Grid */}
         <div className="flex flex-wrap justify-center gap-6 mb-12">
           {/* Card 1 */}
-          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all">
+          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all m-2">
             <Image
               src="/assets/11.png"
               alt="JIRA E-Commerce Marketing"
@@ -63,7 +63,7 @@ export function BarakahEcosystemSection() {
           </div>
 
           {/* Card 2 */}
-          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all">
+          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all m-2">
             <Image
               src="/assets/22.jpg"
               alt="Engineering Marketing Agency"
@@ -88,7 +88,7 @@ export function BarakahEcosystemSection() {
           </div>
 
           {/* Card 3 */}
-          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all">
+          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all m-2">
             <Image
               src="/assets/33.jpg"
               alt="Health Digital"
@@ -108,7 +108,7 @@ export function BarakahEcosystemSection() {
           </div>
 
           {/* Card 4 */}
-          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all">
+          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all m-2">
             <Image
               src="/assets/44.png"
               alt="ZeroFrame Automation"
@@ -126,7 +126,7 @@ export function BarakahEcosystemSection() {
           </div>
 
           {/* Card 5 */}
-          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all">
+          <div className="relative w-full md:w-[48%] lg:w-[30%] h-[700px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all m-2">
             <Image
               src="/assets/55.jpg"
               alt="NUBAYIN Studio"

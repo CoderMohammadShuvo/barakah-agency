@@ -159,7 +159,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   {blog.category}
                 </span>
                 <div className="flex items-center gap-2 text-[#5c4033]/60">
-                  <span>by Ziad Itani</span>
+                  <span>by {blog.author_name || "Ziad Itani"}</span>
                   <span className="w-1.5 h-1.5 rounded-full bg-[#E76F3D]/20" />
                   <span>{formatDate(blog.created_at)}</span>
                 </div>

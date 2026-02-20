@@ -50,14 +50,11 @@ export function ServicesShowcase() {
         </div>
 
         {/* Three Service Cards */}
-        <div className="flex flex-col md:flex-row gap-6 lg:gap-8">
+        <div className="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap gap-6 lg:gap-8 justify-center">
           {/* Card 1 - Branding & Identity */}
           <motion.div
             initial={{
-              x:
-                typeof window !== "undefined" && window.innerWidth >= 1024
-                  ? "100%"
-                  : 0,
+              x: 0,
               opacity: 0,
               scale: 0.9,
             }}
@@ -65,10 +62,7 @@ export function ServicesShowcase() {
               isVisible
                 ? { x: 0, opacity: 1, scale: 1 }
                 : {
-                    x:
-                      typeof window !== "undefined" && window.innerWidth >= 1024
-                        ? "100%"
-                        : 0,
+                    x: 0,
                     opacity: 0,
                     scale: 0.9,
                   }
@@ -84,7 +78,8 @@ export function ServicesShowcase() {
     p-6 sm:p-8 pb-8 sm:pb-12 
     min-h-[600px] sm:min-h-[700px] md:min-h-[853px]
     flex flex-col 
-    w-full md:w-[48%] lg:w-[30%]
+    w-full md:w-[calc(50%-12px)] lg:w-[30%]
+    md:order-1
   "
           >
             {/* Decorative Pattern */}
@@ -120,11 +115,11 @@ export function ServicesShowcase() {
               {/* Visual Element - Scattered to Grid Images */}
               <div className="flex-1 flex items-center justify-center mb-12 min-h-[340px]">
                 <Image
-                  src="/assets/branding.png"
+                  src="/assets/Branding.png"
                   alt="Branding & Identity"
                   height={340}
                   width={340}
-                  className="object-cover"
+                  className="object-contain"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
@@ -209,7 +204,7 @@ export function ServicesShowcase() {
     min-h-[600px] sm:min-h-[700px] md:min-h-[600px] 
     flex flex-col  
     w-full md:w-full lg:w-[40%]
-    order-first md:order-none
+    md:order-3 lg:order-2
   "
           >
             {/* Decorative Pattern */}
@@ -238,9 +233,9 @@ export function ServicesShowcase() {
                 <div className="relative w-full h-full">
                   {/* Concentric circles */}
                   <Image
-                    src="/assets/graph.png"
+                    src="/assets/Graph.png"
                     alt="Radar"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     fill
                   />
                 </div>
@@ -314,10 +309,7 @@ export function ServicesShowcase() {
           {/* Card 3 - Performance Marketing */}
           <motion.div
             initial={{
-              x:
-                typeof window !== "undefined" && window.innerWidth >= 1024
-                  ? "-100%"
-                  : 0,
+              x: 0,
               opacity: 0,
               scale: 0.9,
             }}
@@ -325,10 +317,7 @@ export function ServicesShowcase() {
               isVisible
                 ? { x: 0, opacity: 1, scale: 1 }
                 : {
-                    x:
-                      typeof window !== "undefined" && window.innerWidth >= 1024
-                        ? "-100%"
-                        : 0,
+                    x: 0,
                     opacity: 0,
                     scale: 0.9,
                   }
@@ -341,7 +330,8 @@ export function ServicesShowcase() {
     p-6 sm:p-8 pb-8 sm:pb-12 
     min-h-[600px] sm:min-h-[700px] md:min-h-[600px] 
     flex flex-col 
-    w-full md:w-[48%] lg:w-[30%]
+    w-full md:w-[calc(50%-12px)] lg:w-[30%]
+    md:order-2 lg:order-3
   "
           >
             {/* Decorative Pattern */}
@@ -372,7 +362,7 @@ export function ServicesShowcase() {
                   <Image
                     src="/assets/thirdcard.png"
                     alt="Radar"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     fill
                   />
                 </div>

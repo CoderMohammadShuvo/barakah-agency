@@ -18,6 +18,7 @@ export const blogSchema = z.object({
   content: z.string().min(50, "Content must be at least 50 characters"),
   cover_image: z.string().url("Please enter a valid image URL").optional().or(z.literal("")),
   category: z.string().min(2, "Category is required"),
+  author_name: z.string().transform(val => val === "" ? null : val).nullable(),
   tags: z.string().optional(),
   published: z.boolean().default(false),
   meta_title: z.string().optional(),

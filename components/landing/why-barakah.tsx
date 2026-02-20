@@ -47,8 +47,8 @@ export function WhyBarakah() {
     font-lato
     text-[#3F1200]
     font-normal
-    text-[64px]
-    leading-[84px]
+    text-3xl md:text-5xl lg:text-[56px] xl:text-[64px]
+    leading-tight xl:leading-[84px]
     tracking-[-0.03em]
     mb-8
   "
@@ -66,8 +66,8 @@ export function WhyBarakah() {
               <span
                 className="
       font-normal
-      text-[56px]
-      leading-[84px]
+      text-2xl md:text-4xl lg:text-5xl xl:text-[56px]
+      leading-tight xl:leading-[84px]
       tracking-[-0.03em]
       text-[#3F1200]
     "
@@ -78,8 +78,8 @@ export function WhyBarakah() {
               <span
                 className="
       font-normal
-      text-[56px]
-      leading-[84px]
+      text-2xl md:text-4xl lg:text-5xl xl:text-[56px]
+      leading-tight xl:leading-[84px]
       tracking-[-0.03em]
       text-[#3F1200]
     "

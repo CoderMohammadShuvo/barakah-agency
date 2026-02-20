@@ -1,11 +1,12 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import Link from "next/link"
-import { createClient } from "@/lib/supabase/client"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { createClient } from "@/lib/supabase/client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Table,
   TableBody,
@@ -13,7 +14,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -24,66 +25,98 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
-import { Plus, Pencil, Trash2, Eye, EyeOff } from "lucide-react"
-import type { Blog } from "@/types"
+} from "@/components/ui/alert-dialog";
+import { Plus, Pencil, Trash2, Eye, EyeOff } from "lucide-react";
+import type { Blog } from "@/types";
 
 export default function AdminBlogsPage() {
-  const [blogs, setBlogs] = useState<Blog[]>([])
-  const [loading, setLoading] = useState(true)
-  const supabase = createClient()
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+  const pageSize = 10;
+  const supabase = createClient();
 
   useEffect(() => {
-    fetchBlogs()
-  }, [])
+    fetchBlogs();
+  }, [page, search]);
 
   async function fetchBlogs() {
-    setLoading(true)
-    const { data, error } = await supabase
+    setLoading(true);
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize - 1;
+
+    let query = supabase
       .from("blogs")
-      .select("*")
-      .order("created_at", { ascending: false })
-    
-    if (error) {
-      console.error("Error fetching blogs:", error)
-    } else {
-      setBlogs(data || [])
+      .select("*", { count: "exact" })
+      .order("created_at", { ascending: false });
+
+    if (search) {
+      query = query.ilike("title", `%${search}%`);
     }
-    setLoading(false)
+
+    const { data, error, count } = await query.range(from, to);
+
+    if (error) {
+      console.error("Error fetching blogs:", error);
+    } else {
+      setBlogs(data || []);
+      setTotalCount(count || 0);
+    }
+    setLoading(false);
   }
 
   async function togglePublish(blog: Blog) {
     const { error } = await supabase
       .from("blogs")
       .update({ published: !blog.published })
-      .eq("id", blog.id)
-    
+      .eq("id", blog.id);
+
     if (error) {
-      console.error("Error updating blog:", error)
+      console.error("Error updating blog:", error);
     } else {
-      fetchBlogs()
+      fetchBlogs();
     }
   }
 
   async function deleteBlog(id: string) {
-    const { error } = await supabase
-      .from("blogs")
-      .delete()
-      .eq("id", id)
-    
+    const { error } = await supabase.from("blogs").delete().eq("id", id);
+
     if (error) {
-      console.error("Error deleting blog:", error)
+      console.error("Error deleting blog:", error);
     } else {
-      fetchBlogs()
+      fetchBlogs();
     }
   }
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">Blog Posts</h1>
-          <p className="text-muted-foreground">Manage your blog content</p>
+      <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div className="relative w-full md:w-96">
+          <Input
+            placeholder="Search blogs..."
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setPage(1);
+            }}
+            className="pl-10"
+          />
+          <svg
+            className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
         </div>
         <Button asChild>
           <Link href="/admin/blogs/new">
@@ -163,9 +196,13 @@ export default function AdminBlogsPage() {
                           </AlertDialogTrigger>
                           <AlertDialogContent>
                             <AlertDialogHeader>
-                              <AlertDialogTitle>Delete Blog Post</AlertDialogTitle>
+                              <AlertDialogTitle>
+                                Delete Blog Post
+                              </AlertDialogTitle>
                               <AlertDialogDescription>
-                                Are you sure you want to delete &quot;{blog.title}&quot;? This action cannot be undone.
+                                Are you sure you want to delete &quot;
+                                {blog.title}&quot;? This action cannot be
+                                undone.
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
@@ -186,8 +223,37 @@ export default function AdminBlogsPage() {
               </TableBody>
             </Table>
           )}
+
+          {totalCount > pageSize && (
+            <div className="flex items-center justify-between mt-6">
+              <p className="text-sm text-muted-foreground">
+                Showing {Math.min(blogs.length, pageSize)} of {totalCount} posts
+              </p>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                  disabled={page === 1}
+                >
+                  Previous
+                </Button>
+                <div className="text-sm font-medium">
+                  Page {page} of {Math.ceil(totalCount / pageSize)}
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setPage((p) => p + 1)}
+                  disabled={page >= Math.ceil(totalCount / pageSize)}
+                >
+                  Next
+                </Button>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

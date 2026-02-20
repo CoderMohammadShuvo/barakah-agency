@@ -8,7 +8,7 @@ export interface Blog {
   category: string
   tags: string[] | null
   published: boolean
-  author_id: string | null
+  author_name: string | null
   meta_title: string | null
   meta_description: string | null
   created_at: string

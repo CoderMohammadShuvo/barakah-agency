@@ -61,31 +61,35 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-orange-100 shadow-sm"
-          : "bg-transparent",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-orange-100 shadow-sm",
+        isScrolled ? "bg-white/95 backdrop-blur-md" : "bg-white",
       )}
     >
-      <nav className="max-w-8xl mx-auto px-4 lg:px-8">
+      <nav className="max-w-8xl mx-auto px-4 lg:px-6 xl:px-8">
         <div className="flex h-16 lg:h-20 items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center font-serif text-2xl lg:text-3xl font-bold text-[#E76F3D] tracking-tight"
+            className="flex items-center font-serif text-2xl lg:text-3xl font-bold text-[#E76F3D] tracking-tight shrink-0"
           >
-            <Image src="/logo.jpg" alt="Logo" width={200} height={100} />
+            <Image
+              src="/logo.jpg"
+              alt="Logo"
+              width={160}
+              height={80}
+              className="w-[140px] lg:w-[160px] xl:w-[200px] h-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden xl:flex items-center gap-1 xl:gap-2">
             <NavigationMenu>
               <NavigationMenuList>
                 {siteConfig.navigation.map((item) => (
                   <NavigationMenuItem key={item.name}>
                     {item.items ? (
                       <>
-                        <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent font-medium text-[15px] data-[state=open]:text-[#E76F3D]">
+                        <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent font-medium text-sm xl:text-[15px] data-[state=open]:text-[#E76F3D]">
                           {item.name}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
@@ -156,7 +160,7 @@ export function Navbar() {
                         <NavigationMenuLink
                           className={cn(
                             navigationMenuTriggerStyle(),
-                            "bg-transparent hover:bg-transparent focus:bg-transparent font-medium text-[15px]",
+                            "bg-transparent hover:bg-transparent focus:bg-transparent font-medium text-sm xl:text-[15px]",
                             pathname === item.href
                               ? "text-[#E76F3D]"
                               : "text-[#5C4033]",
@@ -263,7 +267,7 @@ export function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden h-9 w-9 text-[#3F1200]"
+              className="xl:hidden h-9 w-9 text-[#3F1200]"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
@@ -278,7 +282,7 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden border-t border-[#E76F3D]/10 bg-[#FFF5F0] max-h-[80vh] overflow-y-auto rounded-b-2xl shadow-xl">
+          <div className="xl:hidden border-t border-[#E76F3D]/10 bg-[#FFF5F0] max-h-[80vh] overflow-y-auto rounded-b-2xl shadow-xl">
             <div className="flex flex-col py-4 space-y-1">
               {siteConfig.navigation.map((item) => (
                 <div key={item.name} className="px-2">

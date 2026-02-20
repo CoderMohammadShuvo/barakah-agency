@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -13,12 +15,9 @@ import {
 import { Section, SectionHeader } from "@/components/global";
 import { Button } from "@/components/ui/button";
 import { ServicesHero } from "@/components/services/services-hero";
-
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "Explore our comprehensive suite of ethical marketing services including branding, performance marketing, and strategic consulting.",
-};
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import React, { useState } from "react";
 
 const services = [
   {
@@ -27,6 +26,7 @@ const services = [
     title: "Branding & Identity",
     description:
       "We create brand identities that are clear, cohesive, and enduring. From logos and visual systems to brand guidelines, we help define how your brand looks, feels, and shows up across every touchpoint.",
+    image: "/assets/b1.jpg",
   },
   {
     id: "performance-marketing",
@@ -34,6 +34,7 @@ const services = [
     title: "Performance Marketing & Paid Media",
     description:
       "Our performance marketing focuses on intentional growth, not short-term spikes. We design paid media and search strategies that prioritize relevance, efficiency, and measurable impact.",
+    image: "/assets/pm2.jpg",
   },
   {
     id: "digital",
@@ -41,6 +42,7 @@ const services = [
     title: "Website Design & Development",
     description:
       "We design and build websites that balance form and function. Every experience is rooted in UX clarity, thoughtful UI, and performance — ensuring your site supports both users and business goals.",
+    image: "/assets/be1.jpg",
   },
   {
     id: "social-media",
@@ -48,6 +50,7 @@ const services = [
     title: "Social Media Marketing",
     description:
       "We help brands show up with purpose across social platforms. From strategy to execution, we focus on content and campaigns that build trust, relevance, and long-term audience relationships.",
+    image: "/assets/be2.jpg",
   },
   {
     id: "seo-sem",
@@ -55,6 +58,7 @@ const services = [
     title: "SEO / SEM",
     description:
       "Our SEO and SEM services improve discoverability through strategic optimization, search intent alignment, and content support — helping brands earn attention where it matters most.",
+    image: "/assets/pm5.jpg",
   },
   {
     id: "cro",
@@ -62,8 +66,119 @@ const services = [
     title: "CRO",
     description:
       "We analyze user behavior and refine experiences to improve conversion. Through testing, insights, and iteration, we help brands make every interaction more effective and intentional.",
+    image: "/assets/Graph.png",
   },
 ];
+
+type Service = (typeof services)[0];
+
+function ServiceCard({ service }: { service: Service }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="py-4 lg:py-6"
+    >
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <motion.div
+          className={`relative overflow-hidden group cursor-pointer rounded-[32px] transition-colors duration-400 ease-in-out ${
+            isHovered ? "bg-[#E76F3D]" : "bg-transparent"
+          }`}
+          initial={false}
+        >
+          {/* Background Icon (Mandala) */}
+          <div
+            className={`absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 transition-opacity duration-700 pointer-events-none z-0 scale-[2] ${
+              isHovered ? "opacity-10" : "opacity-0"
+            }`}
+          >
+            <MandalaIcon />
+          </div>
+
+          <div className="px-8 lg:px-12 relative z-10">
+            <div className="py-12 lg:py-20 flex flex-col lg:flex-row items-center justify-between gap-12">
+              {/* Content */}
+              <div className="w-full lg:w-3/5 flex flex-col items-start text-left">
+                <span
+                  className={`block text-xl lg:text-2xl font-medium mb-4 tracking-tight transition-colors duration-400 ${
+                    isHovered ? "text-white/80" : "text-[#3D1A10]/60"
+                  }`}
+                >
+                  {service.subtitle}
+                </span>
+                <motion.h2
+                  animate={{
+                    x: isHovered ? 12 : 0,
+                  }}
+                  className={`text-5xl lg:text-[72px] xl:text-[84px] font-bold mb-8 leading-[1] tracking-[-0.03em] transition-colors duration-400 ${
+                    isHovered ? "text-white" : "text-[#3D1A10]"
+                  }`}
+                >
+                  {service.title}
+                </motion.h2>
+                <p
+                  className={`text-lg lg:text-2xl leading-relaxed font-medium max-w-2xl transition-colors duration-400 ${
+                    isHovered ? "text-white/90" : "text-[#3D1A10]/70"
+                  }`}
+                >
+                  {service.description}
+                </p>
+              </div>
+
+              {/* Right Image Container - Slides in from right on hover */}
+              <div className="w-full lg:w-2/5 flex justify-end relative h-[300px] lg:h-[400px]">
+                <AnimatePresence>
+                  {isHovered && (
+                    <motion.div
+                      initial={{ opacity: 0, x: 200, rotate: 10 }}
+                      animate={{ opacity: 1, x: 50, rotate: 0 }}
+                      exit={{ opacity: 0, x: 200, rotate: 10 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 80,
+                        damping: 15,
+                        mass: 0.8,
+                      }}
+                      className="absolute top-0 right-0 w-[500px] h-full rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20"
+                    >
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                        priority
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Divider - visible when NOT hovered to maintain list structure */}
+        <div
+          className={`border-b border-[#3D1A10]/10 mt-6 transition-opacity duration-400 ${
+            isHovered ? "opacity-0" : "opacity-100"
+          }`}
+        />
+      </div>
+    </div>
+  );
+}
+
+function ServiceList({ services }: { services: Service[] }) {
+  return (
+    <section className="py-0 relative">
+      <div className="border-t border-[#3D1A10]/10" />
+      {services.map((service) => (
+        <ServiceCard key={service.id} service={service} />
+      ))}
+    </section>
+  );
+}
 
 const benefits = [
   {
@@ -116,33 +231,7 @@ export default function ServicesPage() {
       <ServicesHero />
 
       {/* Services List */}
-      <Section className="py-0">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="border-t border-[#3D1A10]/10" />
-          {services.map((service, index) => (
-            <div
-              key={service.id}
-              id={service.id}
-              className="group cursor-default"
-            >
-              <div className="py-24 lg:py-32 flex flex-col items-start text-left">
-                <span className="block text-xl lg:text-2xl text-[#3D1A10]/60 font-medium mb-4 tracking-tight">
-                  {service.subtitle}
-                </span>
-                <h2 className="text-5xl lg:text-[84px] font-bold text-[#3D1A10] mb-8 leading-[1] tracking-[-0.03em] transition-transform duration-500 group-hover:translate-x-4">
-                  {service.title}
-                </h2>
-                <div className="w-full">
-                  <p className="text-lg lg:text-2xl text-[#3D1A10]/70 leading-relaxed font-medium">
-                    {service.description}
-                  </p>
-                </div>
-              </div>
-              <div className="border-b border-[#3D1A10]/10" />
-            </div>
-          ))}
-        </div>
-      </Section>
+      <ServiceList services={services} />
 
       {/* Benefits Section */}
       <Section className="py-32 lg:py-48">

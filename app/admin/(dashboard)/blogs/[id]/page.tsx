@@ -40,6 +40,7 @@ interface BlogFormData {
   content: string;
   cover_image: string;
   category: string;
+  author_name: string;
   tags: string; // This will be overridden by tagsInput (string) in handleSubmit
   meta_title: string;
   meta_description: string;
@@ -65,12 +66,14 @@ export default function BlogEditorPage({
     content: "",
     cover_image: "",
     category: "",
+    author_name: "",
     tags: "",
     meta_title: "",
     meta_description: "",
     published: false,
   });
   const [tagsInput, setTagsInput] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string[]>>({});
 
   useEffect(() => {
     if (!isNew) {
@@ -96,6 +99,7 @@ export default function BlogEditorPage({
         content: data.content || "",
         cover_image: data.cover_image || "",
         category: data.category || "",
+        author_name: data.author_name || "",
         tags: data.tags?.join(", ") || "",
         meta_title: data.meta_title || "",
         meta_description: data.meta_description || "",
@@ -129,6 +133,7 @@ export default function BlogEditorPage({
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
+    setFieldErrors({});
 
     const blogData = {
       ...formData,
@@ -143,11 +148,18 @@ export default function BlogEditorPage({
           toast.success("Blog post created successfully");
           router.push("/admin/blogs");
         } else {
-          toast.error(
-            typeof result.error === "string"
-              ? result.error
-              : "Failed to create blog",
-          );
+          // If it's a validation error (object with arrays of strings)
+          if (typeof result.error === "object" && !(result.error as any).code) {
+            setFieldErrors(result.error as Record<string, string[]>);
+            toast.error("Please fix the errors in the form");
+          } else {
+            // It's a server/database error (string or error object)
+            toast.error(
+              typeof result.error === "string"
+                ? result.error
+                : (result.error as any)?.message || "Failed to create blog",
+            );
+          }
         }
       } else {
         const result = await updateBlog(id, blogData);
@@ -155,11 +167,16 @@ export default function BlogEditorPage({
           toast.success("Blog post updated successfully");
           router.push("/admin/blogs");
         } else {
-          toast.error(
-            typeof result.error === "string"
-              ? result.error
-              : "Failed to update blog",
-          );
+          if (typeof result.error === "object" && !(result.error as any).code) {
+            setFieldErrors(result.error as Record<string, string[]>);
+            toast.error("Please fix the errors in the form");
+          } else {
+            toast.error(
+              typeof result.error === "string"
+                ? result.error
+                : (result.error as any)?.message || "Failed to update blog",
+            );
+          }
         }
       }
     } catch (err) {
@@ -212,6 +229,11 @@ export default function BlogEditorPage({
                     placeholder="Enter blog title"
                     required
                   />
+                  {fieldErrors.title && (
+                    <p className="text-sm font-medium text-destructive">
+                      {fieldErrors.title[0]}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -225,6 +247,11 @@ export default function BlogEditorPage({
                     placeholder="blog-post-slug"
                     required
                   />
+                  {fieldErrors.slug && (
+                    <p className="text-sm font-medium text-destructive">
+                      {fieldErrors.slug[0]}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -241,6 +268,11 @@ export default function BlogEditorPage({
                     placeholder="Brief description of the post"
                     rows={3}
                   />
+                  {fieldErrors.excerpt && (
+                    <p className="text-sm font-medium text-destructive">
+                      {fieldErrors.excerpt[0]}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -252,6 +284,11 @@ export default function BlogEditorPage({
                     }
                     placeholder="Write your blog content here..."
                   />
+                  {fieldErrors.content && (
+                    <p className="text-sm font-medium text-destructive">
+                      {fieldErrors.content[0]}
+                    </p>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -307,6 +344,11 @@ export default function BlogEditorPage({
                     }
                     placeholder="https://example.com/image.jpg"
                   />
+                  {fieldErrors.cover_image && (
+                    <p className="text-sm font-medium text-destructive">
+                      {fieldErrors.cover_image[0]}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -328,6 +370,26 @@ export default function BlogEditorPage({
                       ))}
                     </SelectContent>
                   </Select>
+                  {fieldErrors.category && (
+                    <p className="text-sm font-medium text-destructive">
+                      {fieldErrors.category[0]}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="author_name">Author Name</Label>
+                  <Input
+                    id="author_name"
+                    value={formData.author_name}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        author_name: e.target.value,
+                      }))
+                    }
+                    placeholder="Enter author name"
+                  />
                 </div>
 
                 <div className="space-y-2">

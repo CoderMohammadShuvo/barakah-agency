@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useRouter } from "next/navigation"
-import { LogOut, User as UserIcon, Menu } from "lucide-react"
-import { createClient } from "@/lib/supabase/client"
-import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation";
+import { LogOut, User as UserIcon, Menu } from "lucide-react";
+import { createClient } from "@/lib/supabase/client";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,22 +11,26 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import type { User } from "@supabase/supabase-js"
+} from "@/components/ui/dropdown-menu";
+import type { User } from "@supabase/supabase-js";
 
 interface AdminHeaderProps {
-  user: User
+  user: User;
 }
 
 export function AdminHeader({ user }: AdminHeaderProps) {
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSignOut = async () => {
-    const supabase = createClient()
-    await supabase.auth.signOut()
-    router.push("/admin/login")
-    router.refresh()
-  }
+    // Clear hardcoded admin cookie
+    document.cookie =
+      "admin_auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    router.push("/admin/login");
+    router.refresh();
+  };
 
   return (
     <header className="sticky top-0 z-40 flex h-16 items-center gap-x-4 border-b border-border bg-card px-6 lg:px-8">
@@ -42,10 +46,7 @@ export function AdminHeader({ user }: AdminHeaderProps) {
       {/* User menu */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button
-            variant="ghost"
-            className="flex items-center gap-2 px-2"
-          >
+          <Button variant="ghost" className="flex items-center gap-2 px-2">
             <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
               <UserIcon className="h-4 w-4 text-primary" />
             </div>
@@ -61,12 +62,15 @@ export function AdminHeader({ user }: AdminHeaderProps) {
             {user.email}
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={handleSignOut} className="text-destructive">
+          <DropdownMenuItem
+            onClick={handleSignOut}
+            className="text-destructive"
+          >
             <LogOut className="mr-2 h-4 w-4" />
             Sign out
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </header>
-  )
+  );
 }

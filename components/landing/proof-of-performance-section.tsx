@@ -83,9 +83,9 @@ export function ProofOfPerformanceSection() {
               whileHover="expanded"
               className="bg-white  overflow-hidden  hover:shadow-2xl transition-shadow duration-500 cursor-pointer border-b pb-4 border-black-100"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 h-full min-h-[200px] p-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 h-full min-h-[200px] p-6 md:p-10">
                 {/* Left Column - Info */}
-                <div className=" pr-10 flex flex-col justify-center relative z-10 ">
+                <div className="md:pr-10 flex flex-col justify-center relative z-10 ">
                   <div className="w-full">
                     <h3 className="text-3xl font-bold text-[#3F1200] mb-6 font-lato">
                       {study.title}
@@ -131,7 +131,7 @@ export function ProofOfPerformanceSection() {
                         <div className="flex gap-10 mb-8 p-6  rounded-2xl">
                           {study.metrics.map((metric, idx) => (
                             <div key={idx}>
-                              <div className="text-[84px] font-bold italic text-[#3F1200] font-lato">
+                              <div className="text-4xl md:text-6xl lg:text-[84px] font-bold italic text-[#3F1200] font-lato">
                                 {metric.value}
                               </div>
                               <div className="text-[10px] uppercase  tracking-widest text-[#5c4033] font-lato font-bold mt-1">

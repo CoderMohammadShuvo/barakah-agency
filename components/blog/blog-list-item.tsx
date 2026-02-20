@@ -36,7 +36,9 @@ export function BlogListItem({ blog }: BlogListItemProps) {
             <span className="px-4 py-1.5 rounded-full bg-[#FFF5F2] text-[#E76F3D] border border-[#FFE2D9]">
               {blog.category}
             </span>
-            <span className="text-[#5c4033]/60">by Ziad Itani</span>
+            <span className="text-[#5c4033]/60">
+              by {blog.author_name || "Ziad Itani"}
+            </span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#E76F3D]/20" />
             <span className="text-[#5c4033]/60">
               {formatDate(blog.created_at)}

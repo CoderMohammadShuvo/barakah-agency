@@ -4,16 +4,28 @@ import { createClient } from "@/lib/supabase/server";
 import { AdminSidebar } from "@/components/admin/admin-sidebar";
 import { AdminHeader } from "@/components/admin/admin-header";
 import Link from "next/link";
+import { cookies } from "next/headers";
 
 export default async function AdminDashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = await cookies();
+  const isAdminAuth = cookieStore.get("admin_auth")?.value === "true";
+
   const supabase = await createClient();
   const {
-    data: { user },
+    data: { user: supabaseUser },
   } = await supabase.auth.getUser();
+
+  // Mock user for hardcoded admin
+  const mockUser = {
+    email: "admin@barakahagency.com",
+    user_metadata: { is_admin: true },
+  } as any;
+
+  const user = isAdminAuth ? mockUser : supabaseUser;
 
   if (!user) {
     redirect("/admin/login");
